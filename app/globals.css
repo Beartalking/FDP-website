@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background: #ffffff;
+  --color-foreground: #1c1c1e;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Brand Colors */
+  --color-accent-yellow: #f2cc0d;
+  --color-accent-yellow-light: #f8d74a;
+  --color-brown: #a2845e;
+  --color-paper: #fdfcf0;
+
+  /* Neutral Colors */
+  --color-gray-900: #1c1c1e;
+  --color-gray-700: #4a4a4a;
+  --color-gray-500: #6f6f6f;
+  --color-gray-100: #f2f2f7;
+  --color-gray-1: #333333;
+  --color-dark-card: #111317;
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont,
+    "SF Pro", "Segoe UI", Roboto, sans-serif;
+
+  /* Font Sizes */
+  --font-size-h2: 28px;
+  --font-size-h3: 22px;
+  --font-size-h4: 18px;
+  --font-size-body: 16px;
+  --font-size-body-sm: 14px;
+  --font-size-button: 14px;
+  --font-size-label: 12px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

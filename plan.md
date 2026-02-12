@@ -307,35 +307,17 @@ Deploy the website to Vercel with automatic deployments from Git.
    - ✅ Scroll-triggered reveal animations on all sections
 
 ### Current Status — RESUME HERE
-**All code work is done. The only remaining step is connecting a custom domain.**
+**All phases complete. Website is live at bearliu.com.**
 
 ---
 
-## Phase 8: Custom Domain (TODO)
+## Phase 8: Custom Domain ✅ COMPLETED
 
-### Goal
-Connect bearliu.com (or chosen domain) to the Vercel deployment.
-
-### Steps
-
-1. **In Vercel Dashboard**
-   - Go to Project → Settings → Domains
-   - Add your custom domain (e.g., `bearliu.com`)
-   - Vercel will show the required DNS records
-
-2. **At Domain Registrar**
-   - Add an `A` record pointing to `76.76.21.21` (Vercel's IP)
-   - Add a `CNAME` record for `www` pointing to `cname.vercel-dns.com`
-   - Or: change nameservers to Vercel's nameservers for automatic DNS
-
-3. **Wait for DNS Propagation**
-   - Usually 5–30 minutes, can take up to 48 hours
-   - Vercel will automatically provision an SSL certificate
-
-### Verification
-- Custom domain loads the site with HTTPS
-- `www` subdomain redirects correctly
-- SSL certificate is valid
+### What was done
+- ✅ `bearliu.com` connected to Vercel deployment
+- ✅ `www.bearliu.com` working (redirects or serves correctly)
+- ✅ HTTPS / SSL certificate active
+- ✅ Verified both domains load the site correctly
 
 ---
 
@@ -371,7 +353,7 @@ Connect bearliu.com (or chosen domain) to the Vercel deployment.
 - [x] Vercel deployment is successful
 - [x] Live site is accessible
 - [x] Automatic deployments work
-- [ ] Custom domain connected
+- [x] Custom domain connected (bearliu.com + www.bearliu.com)
 
 ---
 
@@ -384,6 +366,7 @@ Connect bearliu.com (or chosen domain) to the Vercel deployment.
 5. ✅ Git repository is initialized and has commits
 6. ✅ Website is deployed and live on Vercel
 7. ✅ Automatic deployments are configured
+8. ✅ Custom domain bearliu.com is live with HTTPS
 
 ---
 

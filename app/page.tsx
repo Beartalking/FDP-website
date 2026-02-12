@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Nav from "./components/Nav";
 
 /* ── Inline SVG Icons (replacing SF Symbols) ── */
 const IconCompass = () => (
@@ -88,75 +89,60 @@ const painPoints = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center bg-white">
+    <div className="flex flex-col items-center bg-white overflow-x-hidden">
       {/* ===== NAVIGATION ===== */}
-      <nav className="flex w-full max-w-[960px] items-center justify-between py-2 h-[80px]">
-        <div className="flex items-center gap-3">
-          <div className="relative size-8 overflow-hidden rounded-[20px]">
-            <img src="/images/avatar.svg" alt="Bear Liu" className="size-full" />
-          </div>
-          <span className="text-[16px] tracking-[-0.8px] text-gray-700">
-            Fractional Design Partner
-          </span>
-        </div>
-        <div className="flex items-center gap-8">
-          <a href="#strategy" className="text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors">
-            Strategy
-          </a>
-          <a href="#work" className="text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors">
-            Work
-          </a>
-          <a href="#pricing" className="text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors">
-            Pricing
-          </a>
-          <a
-            href="#book"
-            className="flex h-[44px] w-[120px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#1c190d] hover:brightness-95 transition"
-          >
-            Book Intro
-          </a>
-        </div>
-      </nav>
+      <Nav />
 
       {/* ===== HERO ===== */}
-      <section className="relative w-full max-w-[960px] h-[439px] overflow-hidden rounded-[16px] border-b border-[#bebebe]">
-        <div className="absolute left-0 top-[-288px] w-[1240px] h-[828px]">
+      <section className="relative w-full max-w-[960px] min-h-[600px] lg:min-h-0 lg:h-[439px] overflow-hidden lg:rounded-[16px] border-b border-[#bebebe]">
+        {/* Mobile bg — portrait crop */}
+        <div className="absolute inset-0 lg:hidden">
+          <Image
+            src="/images/mobile-hero.png"
+            alt="Bear Liu speaking at a conference"
+            fill
+            className="object-cover object-[50%_50%]"
+            priority
+          />
+        </div>
+        {/* Desktop bg — exact Figma crop */}
+        <div className="hidden lg:block absolute left-0 top-[-288px] w-[1240px] h-[828px]">
           <Image
             src="/images/hero-bg.jpeg"
-            alt="Bear Liu speaking at a conference"
+            alt=""
             fill
             className="object-cover -scale-y-100 rotate-180"
             priority
           />
         </div>
-        <div className="absolute left-[52px] top-[40px]">
-          <h1 className="bg-white rounded-2xl border-[2.5px] border-gray-900 shadow-[4px_4px_0px_0px_#1c1c1e] text-[48px] font-semibold leading-[56px] tracking-[-1.4px] text-gray-900 px-[24px] pt-[4px] pb-[14px]">
+        <div className="relative flex flex-col gap-3 px-5 md:px-8 lg:px-[52px] py-8 lg:py-[40px]">
+          <h1 className="self-start bg-white rounded-2xl border-[2.5px] border-gray-900 shadow-[4px_4px_0px_0px_#1c1c1e] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] tracking-[-1.4px] text-gray-900 px-[16px] lg:px-[24px] pt-[4px] pb-[10px] lg:pb-[14px]">
             Think like a partner.<br />
             Execute fractionally.
           </h1>
-        </div>
-        <div className="absolute left-[52px] top-[188px] w-[445px] rounded-xl bg-white/60 backdrop-blur-[5px] px-[10px] py-2">
-          <p className="text-[16px] leading-6 tracking-[-0.8px] text-gray-900">
-            I help early-stage teams make clear product design decisions and ship
-            with momentum, without hiring a full-time designer.
-          </p>
-        </div>
-        <a
-          href="#book"
-          className="absolute left-[52px] top-[297px] flex h-[40px] w-[216px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#0a0a0a] hover:brightness-95 transition"
-        >
-          Book your intro
-        </a>
-        <div className="absolute left-[52px] top-[377px] rounded-xl bg-white/60 backdrop-blur-[5px] px-[10px] py-1">
-          <span className="text-[12px] font-medium text-black">
-            🟢 Accepting 2 new partners in Q1
-          </span>
+          <div className="max-w-[445px] rounded-xl bg-white/60 backdrop-blur-[5px] px-[10px] py-2">
+            <p className="text-[16px] leading-6 tracking-[-0.8px] text-gray-900">
+              I help early-stage teams make clear product design decisions and ship
+              with momentum, without hiring a full-time designer.
+            </p>
+          </div>
+          <a
+            href="#book"
+            className="self-start flex h-[44px] lg:h-[40px] w-[216px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#0a0a0a] hover:brightness-95 transition"
+          >
+            Book your intro
+          </a>
+          <div className="self-start rounded-xl bg-white/60 backdrop-blur-[5px] px-[10px] py-1 mt-2 lg:mt-4">
+            <span className="text-[12px] font-medium text-black">
+              🟢 Accepting 2 new partners in Q1
+            </span>
+          </div>
         </div>
       </section>
 
       {/* ===== SOCIAL PROOF ===== */}
-      <section className="relative w-full max-w-[960px] h-[340px] overflow-hidden border-b border-gray-100 bg-white">
-        <div className="absolute left-1/2 -translate-x-1/2 top-[40px] w-[676px] flex flex-col gap-4 items-center">
+      <section className="w-full max-w-[960px] border-b border-gray-100 bg-white px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]">
+        <div className="max-w-[676px] mx-auto flex flex-col gap-4 items-center">
           <h2 className="text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 text-center w-full">
             Backed by Experience, Trusted by Leaders.
           </h2>
@@ -166,7 +152,7 @@ export default function Home() {
             different stages and industries.
           </p>
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 top-[172px] flex items-center gap-[26px]">
+        <div className="flex flex-wrap justify-center gap-3 lg:gap-[26px] mt-6">
           <span className="rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white whitespace-nowrap">
             Ex-Xero Product Designer
           </span>
@@ -177,7 +163,7 @@ export default function Home() {
             B2C &amp; B2B Experience
           </span>
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 top-[240px] flex items-center gap-[43px] h-[58px]">
+        <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-[43px] mt-8">
           <span className="text-[22px] font-semibold tracking-[-1.4px] text-gray-700 shrink-0 whitespace-nowrap">
             Trusted by
           </span>
@@ -191,173 +177,171 @@ export default function Home() {
       </section>
 
       {/* ===== PAIN POINTS ===== */}
-      <section className="relative w-full max-w-[960px] h-[474px] overflow-hidden bg-white">
-        {/* Left side */}
-        <div className="absolute left-[85px] top-[40px] w-[328px]">
-          <div className="relative inline-block">
-            <img
-              src="/images/substrates/stuck.svg"
-              alt=""
-              className="absolute inset-0 w-full h-full"
-              aria-hidden="true"
-            />
-            <h2 className="relative text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 px-[14px] py-[4px]">
+      <section className="w-full max-w-[960px] bg-white px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
+          {/* Left side */}
+          <div className="lg:w-[328px] lg:ml-[85px]">
+            <h2 className="inline-block bg-accent-yellow-light rounded-xl text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 px-[14px] py-[4px]">
               If you&apos;re stuck here,<br />
               we should talk
             </h2>
-          </div>
-          <p className="mt-6 text-[16px] leading-6 tracking-[-0.8px] text-gray-700">
-            <strong>Foundership is hard</strong>. I step in when you need more
-            than a freelancer, but aren&apos;t ready for a full-time Design Lead.
-          </p>
-        </div>
-        <div className="absolute left-[85px] top-[220px]">
-          <div className="relative inline-block">
-            <img
-              src="/images/substrates/best-for.svg"
-              alt=""
-              className="absolute inset-0 w-full h-full"
-              aria-hidden="true"
-            />
-            <p className="relative text-[12px] font-medium text-gray-700 leading-4 px-[8px] py-[2px]">
-              <strong>Best for</strong>: pre-seed to Series A, 1–5 person teams
-              <br />
-              shipping weekly.
+            <p className="mt-6 text-[16px] leading-6 tracking-[-0.8px] text-gray-700">
+              <strong>Foundership is hard</strong>. I step in when you need more
+              than a freelancer, but aren&apos;t ready for a full-time Design Lead.
             </p>
-          </div>
-        </div>
-
-        {/* Right side — pain point cards */}
-        <div className="absolute right-[60px] top-[40px] w-[396px] flex flex-col gap-4">
-          {painPoints.map((item) => (
-            <div key={item.title} className="flex gap-2 items-start w-full">
-              <span className="w-[26px] flex items-center justify-center text-brown shrink-0 mt-[4px]">
-                <item.Icon />
-              </span>
-              <div className="w-[360px]">
-                <h4 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
-                  {item.title}
-                </h4>
-                <p className="text-[14px] leading-5 tracking-[-0.6px] text-gray-700">
-                  {item.desc}
-                </p>
-              </div>
+            <div className="relative inline-block mt-6">
+              <img
+                src="/images/substrates/best-for.svg"
+                alt=""
+                className="absolute inset-0 w-full h-full"
+                aria-hidden="true"
+              />
+              <p className="relative text-[12px] font-medium text-gray-700 leading-4 px-[8px] py-[2px]">
+                <strong>Best for</strong>: pre-seed to Series A, 1–5 person teams
+                <br />
+                shipping weekly.
+              </p>
             </div>
-          ))}
+          </div>
+
+          {/* Right side — pain point cards */}
+          <div className="lg:ml-auto lg:mr-[60px] w-full lg:w-[396px] flex flex-col gap-4">
+            {painPoints.map((item) => (
+              <div key={item.title} className="flex gap-2 items-start w-full">
+                <span className="w-[26px] flex items-center justify-center text-brown shrink-0 mt-[4px]">
+                  <item.Icon />
+                </span>
+                <div className="flex-1 lg:w-[360px]">
+                  <h4 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
+                    {item.title}
+                  </h4>
+                  <p className="text-[14px] leading-5 tracking-[-0.6px] text-gray-700">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ===== STRATEGY ===== */}
       <section
         id="strategy"
-        className="relative w-full max-w-[960px] h-[1426px] overflow-hidden rounded-xl bg-gray-100"
+        className="w-full max-w-[960px] lg:rounded-xl bg-gray-100 px-5 md:px-8 lg:px-[48px] py-10 lg:py-[40px]"
       >
         {/* Header */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-[40px] w-[705px] text-center">
-          <div className="relative inline-block">
-            <img
-              src="/images/substrates/strategy.svg"
-              alt=""
-              className="absolute inset-0 w-full h-full"
-              aria-hidden="true"
-            />
-            <h2 className="relative text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 px-[14px] py-[4px]">
-              A Seamless Extension of Your Team.
-            </h2>
-          </div>
+        <div className="max-w-[705px] mx-auto text-center">
+          <h2 className="inline-block bg-accent-yellow-light rounded-xl text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 px-[14px] py-[4px]">
+            A Seamless Extension of Your Team.
+          </h2>
           <p className="mt-4 text-[16px] leading-6 tracking-[-0.8px] text-gray-700">
             I integrate into your Slack and workflows, providing full
             transparency from roadmap to delivery.
           </p>
         </div>
 
-        {/* Feature 1: Roadmap — icon + text at left, image at right */}
-        <span className="absolute left-[55px] top-[245px] -translate-y-1/2 text-brown">
-          <IconClipboard />
-        </span>
-        <div className="absolute left-[91px] top-[232px] w-[298px]">
-          <h3 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
-            Roadmap
-          </h3>
-          <span className="mt-1 inline-block rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white">
-            Align direction and priorities
-          </span>
-          <p className="mt-1 text-[14px] leading-5 tracking-[-0.6px] text-gray-700 w-[287px]">
-            We turn goals, constraints, and trade-offs into a clear plan your
-            team can align on and your developers can execute.
-          </p>
-        </div>
-        <div className="absolute left-[416px] top-[175px] w-[489px] h-[283px] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden">
-          <Image
-            src="/images/strategy/roadmap.png"
-            alt="Product roadmap example"
-            fill
-            className="object-cover rounded-xl"
-          />
-        </div>
-
-        {/* Feature 2: Slack + Office Hours — images at left, text at right */}
-        <div className="absolute left-[48px] top-[526px] w-[339px] h-[280px] overflow-hidden">
-          <Image
-            src="/images/strategy/slack-1.png"
-            alt="Slack collaboration example"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="absolute left-[217px] top-[637px] w-[303px] h-[189px] rounded-[4px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08),0px_8px_16px_0px_rgba(0,0,0,0.06)]">
-          <div className="relative w-full h-full overflow-hidden rounded-[4px]">
+        {/* Feature 1: Roadmap — text left, image right */}
+        <div className="mt-10 lg:mt-[95px] flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+          <div className="flex gap-2 lg:w-[340px] shrink-0 lg:pt-[57px]">
+            <span className="text-brown shrink-0 mt-1">
+              <IconClipboard />
+            </span>
+            <div>
+              <h3 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
+                Roadmap
+              </h3>
+              <span className="mt-1 inline-block rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white">
+                Align direction and priorities
+              </span>
+              <p className="mt-1 text-[14px] leading-5 tracking-[-0.6px] text-gray-700 max-w-[287px]">
+                We turn goals, constraints, and trade-offs into a clear plan your
+                team can align on and your developers can execute.
+              </p>
+            </div>
+          </div>
+          <div className="relative w-full lg:w-[489px] aspect-[489/283] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden shrink-0">
             <Image
-              src="/images/strategy/slack-2.png"
-              alt="Slack conversation detail"
+              src="/images/strategy/roadmap.png"
+              alt="Product roadmap example"
               fill
-              className="object-cover"
+              className="object-cover rounded-xl"
             />
           </div>
         </div>
-        <span className="absolute left-[556px] top-[641px] -translate-y-1/2 text-brown">
-          <IconChat />
-        </span>
-        <div className="absolute left-[592px] top-[628px] w-[298px]">
-          <h3 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
-            Slack + Office Hours
-          </h3>
-          <span className="mt-1 inline-block rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white">
-            Unblock decisions fast
-          </span>
-          <p className="mt-1 text-[14px] leading-5 tracking-[-0.6px] text-gray-700 w-[287px]">
-            I work inside your day-to-day channel to clarify decisions, reduce
-            back-and-forth, and prevent small issues turning into big rework.
-          </p>
+
+        {/* Feature 2: Slack + Office Hours — images left, text right */}
+        <div className="mt-10 lg:mt-[68px] flex flex-col-reverse lg:flex-row gap-6 lg:gap-8 items-start">
+          <div className="relative w-full lg:w-[470px] shrink-0">
+            <div className="relative w-full lg:w-[339px] aspect-[339/280] overflow-hidden">
+              <Image
+                src="/images/strategy/slack-1.png"
+                alt="Slack collaboration example"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative lg:absolute lg:left-[169px] lg:top-[111px] w-full lg:w-[303px] aspect-[303/189] rounded-[4px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08),0px_8px_16px_0px_rgba(0,0,0,0.06)] mt-[-40px] ml-[40px] lg:mt-0 lg:ml-0">
+              <div className="relative w-full h-full overflow-hidden rounded-[4px]">
+                <Image
+                  src="/images/strategy/slack-2.png"
+                  alt="Slack conversation detail"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-2 lg:pt-[102px]">
+            <span className="text-brown shrink-0 mt-1">
+              <IconChat />
+            </span>
+            <div>
+              <h3 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
+                Slack + Office Hours
+              </h3>
+              <span className="mt-1 inline-block rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white">
+                Unblock decisions fast
+              </span>
+              <p className="mt-1 text-[14px] leading-5 tracking-[-0.6px] text-gray-700 max-w-[287px]">
+                I work inside your day-to-day channel to clarify decisions, reduce
+                back-and-forth, and prevent small issues turning into big rework.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Feature 3: Async delivery — icon + text at left, image at right */}
-        <span className="absolute left-[79px] top-[1044px] -translate-y-1/2 text-brown">
-          <IconVideo />
-        </span>
-        <div className="absolute left-[112px] top-[1031px] w-[275px]">
-          <h3 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
-            Async delivery
-          </h3>
-          <span className="mt-1 inline-block rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white">
-            Save meetings, keep clarity
-          </span>
-          <p className="mt-1 text-[14px] leading-5 tracking-[-0.6px] text-gray-700 w-[275px]">
-            Weekly design updates with short walkthrough videos, so you and your
-            devs can review and move forward on your own time.
-          </p>
-        </div>
-        <div className="absolute left-[416px] top-[946px] w-[489px] h-[318px] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden">
-          <Image
-            src="/images/strategy/async-loom.png"
-            alt="Loom video walkthrough preview"
-            fill
-            className="object-cover rounded-xl"
-          />
+        {/* Feature 3: Async delivery — text left, image right */}
+        <div className="mt-10 lg:mt-[68px] flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+          <div className="flex gap-2 lg:w-[340px] shrink-0 lg:pt-[85px]">
+            <span className="text-brown shrink-0 mt-1">
+              <IconVideo />
+            </span>
+            <div>
+              <h3 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
+                Async delivery
+              </h3>
+              <span className="mt-1 inline-block rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white">
+                Save meetings, keep clarity
+              </span>
+              <p className="mt-1 text-[14px] leading-5 tracking-[-0.6px] text-gray-700 max-w-[275px]">
+                Weekly design updates with short walkthrough videos, so you and your
+                devs can review and move forward on your own time.
+              </p>
+            </div>
+          </div>
+          <div className="relative w-full lg:w-[489px] aspect-[489/318] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden shrink-0">
+            <Image
+              src="/images/strategy/async-loom.png"
+              alt="Loom video walkthrough preview"
+              fill
+              className="object-cover rounded-xl"
+            />
+          </div>
         </div>
 
         {/* What you'll notice */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-[1316px] w-[678px] text-center">
+        <div className="max-w-[678px] mx-auto text-center mt-10 lg:mt-[52px]">
           <h3 className="text-[22px] font-semibold leading-[30px] tracking-[-1.4px] text-gray-900">
             What you&apos;ll notice
           </h3>
@@ -370,24 +354,16 @@ export default function Home() {
       </section>
 
       {/* ===== CASE STUDIES ===== */}
-      <section id="work" className="relative w-full max-w-[960px] h-[863px] bg-white overflow-hidden">
-        <div className="absolute left-1/2 -translate-x-1/2 top-[40px] text-center">
-          <div className="relative inline-block">
-            <img
-              src="/images/substrates/work.svg"
-              alt=""
-              className="absolute inset-0 w-full h-full"
-              aria-hidden="true"
-            />
-            <h2 className="relative text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 px-[14px] py-[4px]">
-              Strategic Impact, Visualized.
-            </h2>
-          </div>
+      <section id="work" className="w-full max-w-[960px] bg-white px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]">
+        <div className="text-center">
+          <h2 className="inline-block bg-accent-yellow-light rounded-xl text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 px-[14px] py-[4px]">
+            Strategic Impact, Visualized.
+          </h2>
         </div>
 
         {/* Case Study 1: MovesMethod */}
-        <div className="absolute left-[139px] top-[108px] w-[688px] h-[338px]">
-          <div className="absolute left-[-75px] top-0 w-[368px] h-[374px] overflow-hidden">
+        <div className="mt-8 lg:mt-[68px] flex flex-col lg:flex-row gap-6 lg:gap-0 max-w-[688px] lg:max-w-none mx-auto lg:mx-0 lg:pl-[64px]">
+          <div className="relative w-full lg:w-[368px] aspect-[368/374] lg:aspect-auto lg:h-[374px] overflow-hidden shrink-0 lg:-ml-[75px]">
             <Image
               src="/images/case-studies/movesmethod.png"
               alt="MovesMethod App MVP screens"
@@ -395,7 +371,7 @@ export default function Home() {
               className="object-cover"
             />
           </div>
-          <div className="absolute left-[266px] top-0 w-[422px] flex flex-col gap-8">
+          <div className="flex flex-col gap-8 lg:ml-[-27px] lg:pt-0">
             <div className="flex flex-col gap-4">
               <span className="self-start rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white">
                 Fitness &amp; health
@@ -410,8 +386,8 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-6">
-              <div className="w-[176px] flex flex-col gap-2">
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="md:w-[176px] flex flex-col gap-2">
                 <h4 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
                   Challenge
                 </h4>
@@ -421,7 +397,7 @@ export default function Home() {
                   there was no clear brand system.
                 </p>
               </div>
-              <div className="w-[223px] flex flex-col gap-2">
+              <div className="md:w-[223px] flex flex-col gap-2">
                 <h4 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
                   Impact
                 </h4>
@@ -438,8 +414,8 @@ export default function Home() {
         </div>
 
         {/* Case Study 2: Xero */}
-        <div className="absolute left-[139px] top-[486px] w-[688px] h-[338px]">
-          <div className="flex flex-col gap-8 w-[422px]">
+        <div className="mt-10 lg:mt-[40px] flex flex-col-reverse lg:flex-row gap-6 lg:gap-0 max-w-[688px] lg:max-w-none mx-auto lg:mx-0 lg:pl-[139px]">
+          <div className="flex flex-col gap-8 lg:w-[422px]">
             <div className="flex flex-col gap-4">
               <span className="self-start rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white">
                 Fintech, SaaS
@@ -454,8 +430,8 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-6">
-              <div className="w-[176px] flex flex-col gap-2">
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="md:w-[176px] flex flex-col gap-2">
                 <h4 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
                   Challenge
                 </h4>
@@ -464,7 +440,7 @@ export default function Home() {
                   onboarding was not getting users to first value.
                 </p>
               </div>
-              <div className="w-[239px] flex flex-col gap-2">
+              <div className="md:w-[239px] flex flex-col gap-2">
                 <h4 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
                   Impact
                 </h4>
@@ -478,7 +454,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="absolute left-[432px] top-[63px] w-[336px] h-[269px] overflow-hidden">
+          <div className="relative w-full lg:w-[336px] aspect-[336/269] lg:aspect-auto lg:h-[269px] overflow-hidden shrink-0 lg:ml-[10px] lg:mt-[63px]">
             <Image
               src="/images/case-studies/xero.png"
               alt="Xero Guided Setup mobile screens"
@@ -492,30 +468,22 @@ export default function Home() {
       {/* ===== PRICING ===== */}
       <section
         id="pricing"
-        className="relative w-full max-w-[960px] h-[772px] overflow-hidden rounded-xl bg-[#f3f4f6]"
+        className="w-full max-w-[960px] lg:rounded-xl bg-[#f3f4f6] px-5 md:px-8 lg:px-[32px] py-10 lg:py-[40px]"
       >
-        <div className="absolute left-1/2 -translate-x-1/2 top-[40px] w-[705px] text-center">
-          <div className="relative inline-block">
-            <img
-              src="/images/substrates/pricing.svg"
-              alt=""
-              className="absolute inset-0 w-full h-full"
-              aria-hidden="true"
-            />
-            <h2 className="relative text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 px-[14px] py-[4px]">
-              Simple, Transparent Investment.
-            </h2>
-          </div>
+        <div className="max-w-[705px] mx-auto text-center">
+          <h2 className="inline-block bg-accent-yellow-light rounded-xl text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 px-[14px] py-[4px]">
+            Simple, Transparent Investment.
+          </h2>
           <p className="mt-4 text-[16px] leading-6 tracking-[-0.8px] text-gray-700">
             Most teams begin with a Product Audit or a monthly fractional
             partnership. Scope is defined around your stage and goals.
           </p>
         </div>
 
-        <div className="absolute left-1/2 -translate-x-1/2 top-[178px] flex gap-[32px] w-[896px] h-[554px]">
+        <div className="mt-8 flex flex-col lg:flex-row gap-6 lg:gap-[32px] justify-center">
           {/* Product Audit Card */}
-          <div className="relative w-[432px] rounded-2xl border border-[#dddfe3] bg-white">
-            <div className="px-8 pt-8">
+          <div className="flex flex-col w-full lg:w-[432px] rounded-2xl border border-[#dddfe3] bg-white">
+            <div className="px-6 lg:px-8 pt-6 lg:pt-8 flex-1">
               <span className="text-[14px] font-normal uppercase tracking-[0.7px] text-gray-900">
                 One-time
               </span>
@@ -548,23 +516,15 @@ export default function Home() {
                   </span>
                 </div>
               </div>
-              <div className="relative inline-block mt-6">
-                <img
-                  src="/images/substrates/audit-best.svg"
-                  alt=""
-                  className="absolute inset-0 w-full h-full"
-                  aria-hidden="true"
-                />
-                <p className="relative text-[14px] leading-5 tracking-[-0.6px] text-gray-900 px-[8px] py-[10px]">
-                  <strong>Best for</strong>: founders who want clarity before
-                  committing to ongoing work
-                </p>
-              </div>
+              <p className="mt-6 inline-block bg-[#e5e5ea] rounded-lg text-[14px] leading-5 tracking-[-0.6px] text-gray-900 px-[8px] py-[10px]">
+                <strong>Best for</strong>: founders who want clarity before
+                committing to ongoing work
+              </p>
             </div>
-            <div className="absolute bottom-8 left-8 right-8">
+            <div className="px-6 lg:px-8 pb-6 lg:pb-8 pt-6">
               <a
                 href="#"
-                className="flex h-[40px] w-full items-center justify-center rounded-[10px] bg-gray-1 text-[14px] font-semibold text-white hover:bg-gray-700 transition-colors"
+                className="flex h-[44px] lg:h-[40px] w-full items-center justify-center rounded-[10px] bg-gray-1 text-[14px] font-semibold text-white hover:bg-gray-700 transition-colors"
               >
                 Check an example audit
               </a>
@@ -572,8 +532,8 @@ export default function Home() {
           </div>
 
           {/* Fractional Partnership Card */}
-          <div className="relative w-[432px] rounded-2xl bg-dark-card">
-            <div className="px-8 pt-8">
+          <div className="flex flex-col w-full lg:w-[432px] rounded-2xl bg-dark-card">
+            <div className="px-6 lg:px-8 pt-6 lg:pt-8 flex-1">
               <span className="text-[14px] font-normal uppercase tracking-[0.7px] text-accent-yellow-light">
                 ONGOING
               </span>
@@ -608,23 +568,15 @@ export default function Home() {
                   <span>A steady cadence that keeps shipping moving</span>
                 </div>
               </div>
-              <div className="relative inline-block mt-6">
-                <img
-                  src="/images/substrates/partner-best.svg"
-                  alt=""
-                  className="absolute inset-0 w-full h-full"
-                  aria-hidden="true"
-                />
-                <p className="relative text-[14px] leading-5 tracking-[-0.6px] text-white px-[8px] py-[10px]">
-                  <strong>Best for</strong>: teams who need a Design Lead
-                  mindset without hiring full-time
-                </p>
-              </div>
+              <p className="mt-6 inline-block bg-[#4a4a4a] rounded-lg text-[14px] leading-5 tracking-[-0.6px] text-white px-[8px] py-[10px]">
+                <strong>Best for</strong>: teams who need a Design Lead
+                mindset without hiring full-time
+              </p>
             </div>
-            <div className="absolute bottom-8 left-8 right-8">
+            <div className="px-6 lg:px-8 pb-6 lg:pb-8 pt-6">
               <a
                 href="#book"
-                className="flex h-[40px] w-full items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 transition"
+                className="flex h-[44px] lg:h-[40px] w-full items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 transition"
               >
                 Book a 15-minute intro
               </a>
@@ -636,21 +588,19 @@ export default function Home() {
       {/* ===== CTA ===== */}
       <section
         id="book"
-        className="relative w-full max-w-[960px] h-[260px] bg-white border-b border-gray-100"
+        className="w-full max-w-[960px] bg-white border-b border-gray-100 px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]"
       >
-        <div className="absolute left-1/2 -translate-x-1/2 top-[40px] w-[705px] flex flex-col items-center gap-4 text-center">
+        <div className="max-w-[705px] mx-auto flex flex-col items-center gap-4 text-center">
           <h2 className="text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900">
             Book a 15-minute intro to see if it&apos;s worth it
           </h2>
-          <p className="text-[16px] leading-6 tracking-[-0.8px] text-gray-700 w-[525px]">
+          <p className="text-[16px] leading-6 tracking-[-0.8px] text-gray-700 max-w-[525px]">
             Share your current stage and your bottleneck. I&apos;ll help you
             quickly assess what matters most and how we&apos;d start.
           </p>
-        </div>
-        <div className="absolute left-1/2 -translate-x-1/2 top-[180px] w-[524px]">
           <a
             href="#"
-            className="flex h-[40px] w-full items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 transition"
+            className="mt-4 flex h-[44px] lg:h-[40px] w-full max-w-[524px] items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 transition"
           >
             Book a 15-minute intro
           </a>
@@ -658,7 +608,7 @@ export default function Home() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer className="w-full max-w-[960px] h-[96px] flex items-center justify-between px-[60px]">
+      <footer className="w-full max-w-[960px] flex flex-col md:flex-row items-center justify-between gap-4 px-5 md:px-8 lg:px-[60px] py-6 lg:py-0 lg:h-[96px]">
         <p className="text-[16px] leading-6 tracking-[-0.8px] text-gray-500">
           © 2026 Bearliu.com. All rights reserved.
         </p>

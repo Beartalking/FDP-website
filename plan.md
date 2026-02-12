@@ -203,65 +203,65 @@ Build the website based on the Figma design with pixel-perfect implementation fo
 - ✅ Dev server renders all content at http://localhost:3000
 - ⏳ Desktop visual polish needed — minor spacing/positioning tweaks to match Figma pixel-perfect
 
-### Current Status — RESUME HERE
-**Next step: Fix desktop visual details before moving to Phase 4 (responsive).**
-
-Compare the live site against the Figma design (node 51:119, fileKey e01vMMOu7Blbu0WXvHpelZ) and fix:
-- Substrate highlight positioning/sizing
-- Section spacing and padding
-- Image cropping/positioning (especially Strategy section)
-- Hero background image framing
-- Any font weight/tracking differences
-- Any other visual discrepancies
-
-After desktop is pixel-perfect, proceed to Phase 4 for responsive breakpoints.
+### Status
+Desktop layout complete. Proceeded to Phase 4.
 
 ---
 
-## Phase 4: Responsive Testing
+## Phase 4: Responsive Conversion ✅ COMPLETED
 
 ### Goal
-Thoroughly test the website on desktop and mobile viewports to ensure consistent experience.
+Convert the pixel-perfect desktop layout (960px) to work at mobile (375px), tablet (768px), and desktop (1024px+). Mobile-first flex/grid conversion.
 
-### Steps
+**Breakpoints**: Default = mobile, `md:` = 768px, `lg:` = 1024px
 
-1. **Desktop Testing**
-   - Test at 1440px (standard desktop)
-   - Test at 1920px (large desktop)
-   - Verify layout doesn't break at wide viewports
-   - Check text readability and spacing
-   - Test all interactive elements
+### What was done
 
-2. **Mobile Testing**
-   - Test at 375px (iPhone SE/small phones)
-   - Test at 414px (iPhone Pro/standard phones)
-   - Verify touch targets are appropriately sized (min 44x44px)
-   - Test navigation menu functionality
-   - Ensure no horizontal scrolling
-   - Check font sizes are readable on small screens
+1. **Nav → client component** (`app/components/Nav.tsx`)
+   - ✅ Extracted from page.tsx to `"use client"` component with `useState`
+   - ✅ Hamburger menu visible below `lg:`, desktop links hidden below `lg:`
+   - ✅ Mobile menu: full-width dropdown with animated hamburger icon
 
-3. **Tablet Testing**
-   - Test at 768px (iPad portrait)
-   - Test at 1024px (iPad landscape)
-   - Verify layout transitions smoothly between breakpoints
+2. **All 9 sections converted from absolute → flex**
+   - ✅ Hero: dual image (mobile portrait crop `mobile-hero.png`, desktop exact Figma crop via oversized div)
+   - ✅ Social Proof: `flex-wrap` badges and logos, responsive padding
+   - ✅ Pain Points: `flex-col lg:flex-row`, single column on mobile
+   - ✅ Strategy: removed `h-[1426px]` + 13 absolute positions → three flex blocks with `aspect-ratio` images
+   - ✅ Case Studies: `flex-col lg:flex-row`, Xero uses `flex-col-reverse`
+   - ✅ Pricing: cards `flex-col lg:flex-row`, flex column card structure replaces absolute buttons
+   - ✅ CTA: removed absolute centering → pure flex column
+   - ✅ Footer: `flex-col md:flex-row`, responsive padding
 
-4. **Cross-Browser Testing**
-   - Test in Chrome (primary)
-   - Test in Safari (especially on mobile)
-   - Test in Firefox
-   - Verify consistent rendering
+3. **Visual fixes applied during responsive work**
+   - ✅ Section rounded corners: `lg:rounded-*` only (no rounding on mobile for Hero, Strategy, Pricing)
+   - ✅ Yellow substrate SVGs replaced with CSS `bg-accent-yellow-light rounded-xl` (fixed distorted corners from `preserveAspectRatio="none"`)
+   - ✅ Pricing "Best for" substrates replaced with CSS backgrounds (`bg-[#e5e5ea]`, `bg-[#4a4a4a]`)
+   - ✅ Touch targets: `h-[44px] lg:h-[40px]` on buttons
+   - ✅ `overflow-x-hidden` on root to prevent mobile horizontal scroll
 
-5. **Performance Testing**
-   - Run Lighthouse audit
-   - Check page load times
-   - Verify images are optimized
-   - Ensure good Core Web Vitals scores
+### Common patterns used
+| Pattern | Classes |
+|---------|---------|
+| Section container | `w-full max-w-[960px] mx-auto px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]` |
+| Centered header | `max-w-[705px] mx-auto text-center` |
+| Two-column | `flex flex-col lg:flex-row gap-6 lg:gap-8` |
+| Reversed column | `flex flex-col-reverse lg:flex-row` |
+| Responsive image | `relative w-full lg:w-[Xpx] aspect-[W/H] overflow-hidden` |
+| Touch target | `h-[44px] lg:h-[40px]` |
 
-### Verification Tools
-- Browser DevTools responsive mode
+### Files modified
+- `app/page.tsx` — all 9 sections converted
+- `app/components/Nav.tsx` — **new file**, client component with hamburger menu
+- `public/images/mobile-hero.png` — **new file**, hand-cropped mobile hero image
+
+### Current Status — RESUME HERE
+**Phase 4 responsive conversion is complete. Next: Phase 5 (Git/deployment) or further visual QA.**
+
+Remaining items to consider:
+- Cross-browser testing (Safari, Firefox)
 - Lighthouse performance audit
-- Manual testing at different viewport sizes
-- Check for layout shifts and performance issues
+- Clean up unused file `public/images/hero-bg-mobile.jpeg`
+- Tablet (768px) fine-tuning if needed
 
 ---
 

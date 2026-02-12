@@ -1,21 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
+    <div
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled || open
+          ? "bg-white/80 backdrop-blur-md border-b border-gray-100"
+          : "bg-transparent"
+      }`}
+    >
     <nav className="w-full max-w-[960px] mx-auto px-5 md:px-8 lg:px-0">
       <div className="flex items-center justify-between h-[80px]">
-        <div className="flex items-center gap-3">
-          <div className="relative size-8 overflow-hidden rounded-[20px]">
+        <a href="#" className="group flex items-center gap-3">
+          <div className="relative size-8 overflow-hidden rounded-[20px] transition-transform duration-200 group-hover:scale-110">
             <img src="/images/avatar.svg" alt="Bear Liu" className="size-full" />
           </div>
-          <span className="text-[16px] tracking-[-0.8px] text-gray-700">
+          <span className="text-[16px] tracking-[-0.8px] text-gray-700 transition-colors duration-200 group-hover:text-gray-900">
             Fractional Design Partner
           </span>
-        </div>
+        </a>
 
         {/* Desktop links */}
         <div className="hidden lg:flex items-center gap-8">
@@ -70,5 +84,6 @@ export default function Nav() {
         </div>
       )}
     </nav>
+    </div>
   );
 }

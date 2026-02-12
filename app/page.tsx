@@ -90,7 +90,7 @@ const painPoints = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center bg-white overflow-x-hidden">
+    <div className="flex flex-col items-center bg-white">
       {/* ===== NAVIGATION ===== */}
       <Nav />
 
@@ -282,21 +282,21 @@ export default function Home() {
         <ScrollReveal>
         <div className="mt-10 lg:mt-[68px] flex flex-col-reverse lg:flex-row gap-6 lg:gap-8 items-start">
           <div className="relative w-full lg:w-[470px] shrink-0">
-            <div className="relative w-full lg:w-[339px] aspect-[339/280] overflow-hidden">
+            <div className="group relative w-full lg:w-[339px] aspect-[339/280] overflow-hidden">
               <Image
                 src="/images/strategy/slack-1.png"
                 alt="Slack collaboration example"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-            <div className="relative lg:absolute lg:left-[169px] lg:top-[111px] w-full lg:w-[303px] aspect-[303/189] rounded-[4px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08),0px_8px_16px_0px_rgba(0,0,0,0.06)] mt-[-40px] ml-[40px] lg:mt-0 lg:ml-0">
+            <div className="group relative lg:absolute lg:left-[169px] lg:top-[111px] w-full lg:w-[303px] aspect-[303/189] rounded-[4px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08),0px_8px_16px_0px_rgba(0,0,0,0.06)] mt-[-40px] ml-[40px] lg:mt-0 lg:ml-0">
               <div className="relative w-full h-full overflow-hidden rounded-[4px]">
                 <Image
                   src="/images/strategy/slack-2.png"
                   alt="Slack conversation detail"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             </div>
@@ -504,7 +504,7 @@ export default function Home() {
 
         <div className="mt-8 flex flex-col lg:flex-row gap-6 lg:gap-[32px] justify-center">
           {/* Product Audit Card */}
-          <div className="flex flex-col w-full lg:w-[432px] rounded-2xl border border-[#dddfe3] bg-white">
+          <div className="flex flex-col w-full lg:w-[432px] rounded-2xl border border-[#dddfe3] bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:border-[#c0c0c4]">
             <div className="px-6 lg:px-8 pt-6 lg:pt-8 flex-1">
               <span className="text-[14px] font-normal uppercase tracking-[0.7px] text-gray-900">
                 One-time
@@ -554,7 +554,7 @@ export default function Home() {
           </div>
 
           {/* Fractional Partnership Card */}
-          <div className="flex flex-col w-full lg:w-[432px] rounded-2xl bg-dark-card">
+          <div className="flex flex-col w-full lg:w-[432px] rounded-2xl bg-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(242,204,13,0.12)]">
             <div className="px-6 lg:px-8 pt-6 lg:pt-8 flex-1">
               <span className="text-[14px] font-normal uppercase tracking-[0.7px] text-accent-yellow-light">
                 ONGOING

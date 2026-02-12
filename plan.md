@@ -254,157 +254,124 @@ Convert the pixel-perfect desktop layout (960px) to work at mobile (375px), tabl
 - `app/components/Nav.tsx` — **new file**, client component with hamburger menu
 - `public/images/mobile-hero.png` — **new file**, hand-cropped mobile hero image
 
-### Current Status — RESUME HERE
-**Phase 4 responsive conversion is complete. Next: Phase 5 (Git/deployment) or further visual QA.**
-
-Remaining items to consider:
-- Cross-browser testing (Safari, Firefox)
-- Lighthouse performance audit
-- Clean up unused file `public/images/hero-bg-mobile.jpeg`
-- Tablet (768px) fine-tuning if needed
-
 ---
 
-## Phase 5: Git Version Control Setup
+## Phase 5: Git Version Control Setup ✅ COMPLETED
 
 ### Goal
 Initialize Git repository and create proper version control foundation.
 
-### Steps
-
-1. **Initialize Git Repository**
-   ```bash
-   git init
-   ```
-
-2. **Create .gitignore**
-   - Ensure Next.js defaults are included:
-     ```
-     node_modules/
-     .next/
-     .env*.local
-     .vercel
-     out/
-     ```
-
-3. **Make Initial Commit**
-   ```bash
-   git add .
-   git commit -m "Initial commit: FDP website setup with Next.js and Tailwind CSS"
-   ```
-
-4. **Create GitHub Repository** (recommended)
-   - Create new repository on GitHub
-   - Link local repository:
-     ```bash
-     git remote add origin <repository-url>
-     git branch -M main
-     git push -u origin main
-     ```
-
-### Critical Files
-- `.gitignore` - Files to exclude from version control
-- `.git/` - Git repository data
-
-### Verification
-- `git status` shows clean working tree
-- `git log` shows initial commit
-- Remote repository is connected (if using GitHub)
+### What was done
+- ✅ Git repo initialized, pushed to GitHub at `Beartalking/FDP-website`
+- ✅ 7 commits on `main`, all pushed
+- ✅ `.gitignore` includes node_modules, .next, .env*.local, .vercel
 
 ---
 
-## Phase 6: Vercel Deployment
+## Phase 6: Vercel Deployment ✅ COMPLETED
 
 ### Goal
 Deploy the website to Vercel with automatic deployments from Git.
 
+### What was done
+- ✅ Vercel connected to GitHub repo with auto-deploy on push to `main`
+- ✅ All pushes trigger automatic deployments
+- ✅ Build passes cleanly (`npm run build` — zero errors)
+
+---
+
+## Phase 7: Polish & Links ✅ COMPLETED
+
+### What was done
+
+1. **Sticky nav with glassmorphism**
+   - ✅ Nav sticks to top on scroll with `bg-white/80 backdrop-blur-md`
+   - ✅ Transparent at page top, semi-transparent white + blur when scrolled
+   - ✅ Fixed `overflow-x-hidden` on parent breaking sticky (moved to `body` in CSS)
+   - ✅ Mobile menu also triggers glassmorphism background
+
+2. **Real links wired up**
+   - ✅ All "Book Intro" / "Book a 15-minute intro" CTAs → Calendly (`calendly.com/bearliu/15-mins-fdp-intro`)
+   - ✅ "Check an example audit" → Notion sample audit page
+   - ✅ "UX New Zealand Speaker" badge → uxnewzealand.com speaker profile
+   - ✅ Footer LinkedIn → `linkedin.com/in/bearliu`
+   - ✅ Footer X → `x.com/bearliu`
+   - ✅ Footer email → `bear@beartalking.com` (was already correct)
+   - ✅ All external links open in new tab (`target="_blank"`)
+
+3. **Micro-interactions**
+   - ✅ Trust logos: `hover:scale-110` with 200ms transition
+   - ✅ Pricing cards: hover lift + shadow
+   - ✅ Strategy images: hover zoom
+   - ✅ Nav logo: hover scale + color change
+   - ✅ Scroll-triggered reveal animations on all sections
+
+### Current Status — RESUME HERE
+**All code work is done. The only remaining step is connecting a custom domain.**
+
+---
+
+## Phase 8: Custom Domain (TODO)
+
+### Goal
+Connect bearliu.com (or chosen domain) to the Vercel deployment.
+
 ### Steps
 
-1. **Prepare for Deployment**
-   - Ensure `package.json` has correct build script
-   - Test production build locally:
-     ```bash
-     npm run build
-     npm run start
-     ```
-   - Verify build completes without errors
+1. **In Vercel Dashboard**
+   - Go to Project → Settings → Domains
+   - Add your custom domain (e.g., `bearliu.com`)
+   - Vercel will show the required DNS records
 
-2. **Deploy to Vercel**
+2. **At Domain Registrar**
+   - Add an `A` record pointing to `76.76.21.21` (Vercel's IP)
+   - Add a `CNAME` record for `www` pointing to `cname.vercel-dns.com`
+   - Or: change nameservers to Vercel's nameservers for automatic DNS
 
-   **Option A: Using Vercel CLI**
-   ```bash
-   npm i -g vercel
-   vercel login
-   vercel
-   ```
-
-   **Option B: Using Vercel Dashboard**
-   - Visit https://vercel.com
-   - Click "Add New" → "Project"
-   - Import Git repository (if using GitHub)
-   - Configure project settings:
-     - Framework Preset: Next.js
-     - Build Command: `npm run build`
-     - Output Directory: `.next`
-   - Click "Deploy"
-
-3. **Configure Custom Domain** (optional)
-   - Add custom domain in Vercel dashboard
-   - Update DNS records at domain registrar
-   - Wait for DNS propagation
-
-4. **Set Up Automatic Deployments**
-   - Connect Vercel to Git repository
-   - Enable automatic deployments on push to main branch
-   - Preview deployments for pull requests
-
-### Critical Configuration
-- Vercel project settings
-- Environment variables (if any)
-- Custom domain DNS settings (if applicable)
+3. **Wait for DNS Propagation**
+   - Usually 5–30 minutes, can take up to 48 hours
+   - Vercel will automatically provision an SSL certificate
 
 ### Verification
-- Website is live at Vercel URL
-- All pages load correctly
-- Assets are served properly
-- Custom domain works (if configured)
-- Automatic deployments trigger on git push
+- Custom domain loads the site with HTTPS
+- `www` subdomain redirects correctly
+- SSL certificate is valid
 
 ---
 
 ## Testing Checklist
 
 ### Visual
-- [ ] Design matches Figma specifications
-- [ ] Colors, fonts, spacing are accurate
-- [ ] Images and assets display correctly
-- [ ] Animations and transitions work smoothly
+- [x] Design matches Figma specifications
+- [x] Colors, fonts, spacing are accurate
+- [x] Images and assets display correctly
+- [x] Animations and transitions work smoothly
 
 ### Responsive
-- [ ] Mobile view (375px) renders correctly
-- [ ] Tablet view (768px) renders correctly
-- [ ] Desktop view (1440px+) renders correctly
-- [ ] No horizontal scrolling on mobile
-- [ ] Touch targets are appropriately sized
+- [x] Mobile view (375px) renders correctly
+- [x] Tablet view (768px) renders correctly
+- [x] Desktop view (1440px+) renders correctly
+- [x] No horizontal scrolling on mobile
+- [x] Touch targets are appropriately sized
 
 ### Functionality
-- [ ] Navigation works on all devices
-- [ ] Links navigate correctly
-- [ ] Forms submit successfully (if present)
-- [ ] Interactive elements respond to user input
+- [x] Navigation works on all devices (sticky + glassmorphism)
+- [x] Links navigate correctly (all CTAs wired to real URLs)
+- [x] Interactive elements respond to user input
 
 ### Performance
 - [ ] Lighthouse score > 90 for Performance
-- [ ] Images are optimized
-- [ ] No console errors or warnings
-- [ ] Fast page load times
+- [x] Images are optimized
+- [x] No console errors or warnings
+- [x] Fast page load times
 
 ### Deployment
-- [ ] Git repository is set up correctly
-- [ ] Code is committed and pushed
-- [ ] Vercel deployment is successful
-- [ ] Live site is accessible
-- [ ] Automatic deployments work
+- [x] Git repository is set up correctly
+- [x] Code is committed and pushed
+- [x] Vercel deployment is successful
+- [x] Live site is accessible
+- [x] Automatic deployments work
+- [ ] Custom domain connected
 
 ---
 

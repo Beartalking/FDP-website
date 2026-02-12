@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Nav from "./components/Nav";
+import ScrollReveal from "./components/ScrollReveal";
 
 /* ── Inline SVG Icons (replacing SF Symbols) ── */
 const IconCompass = () => (
@@ -116,11 +117,11 @@ export default function Home() {
           />
         </div>
         <div className="relative flex flex-col gap-3 px-5 md:px-8 lg:px-[52px] py-8 lg:py-[40px]">
-          <h1 className="self-start bg-white rounded-2xl border-[2.5px] border-gray-900 shadow-[4px_4px_0px_0px_#1c1c1e] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] tracking-[-1.4px] text-gray-900 px-[16px] lg:px-[24px] pt-[4px] pb-[10px] lg:pb-[14px]">
+          <h1 className="hero-fade-in self-start bg-white rounded-2xl border-[2.5px] border-gray-900 shadow-[4px_4px_0px_0px_#1c1c1e] text-[32px] lg:text-[48px] font-semibold leading-[40px] lg:leading-[56px] tracking-[-1.4px] text-gray-900 px-[16px] lg:px-[24px] pt-[4px] pb-[10px] lg:pb-[14px]">
             Think like a partner.<br />
             Execute fractionally.
           </h1>
-          <div className="max-w-[445px] rounded-xl bg-white/60 backdrop-blur-[5px] px-[10px] py-2">
+          <div className="hero-fade-in max-w-[445px] rounded-xl bg-white/60 backdrop-blur-[5px] px-[10px] py-2">
             <p className="text-[16px] leading-6 tracking-[-0.8px] text-gray-900">
               I help early-stage teams make clear product design decisions and ship
               with momentum, without hiring a full-time designer.
@@ -128,11 +129,11 @@ export default function Home() {
           </div>
           <a
             href="#book"
-            className="self-start flex h-[44px] lg:h-[40px] w-[216px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#0a0a0a] hover:brightness-95 transition"
+            className="hero-fade-in self-start flex h-[44px] lg:h-[40px] w-[216px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#0a0a0a] hover:scale-[1.02] hover:shadow-lg hover:brightness-95 transition-all duration-200"
           >
             Book your intro
           </a>
-          <div className="self-start rounded-xl bg-white/60 backdrop-blur-[5px] px-[10px] py-1 mt-2 lg:mt-4">
+          <div className="hero-fade-in self-start rounded-xl bg-white/60 backdrop-blur-[5px] px-[10px] py-1 mt-2 lg:mt-4">
             <span className="text-[12px] font-medium text-black">
               🟢 Accepting 2 new partners in Q1
             </span>
@@ -141,7 +142,8 @@ export default function Home() {
       </section>
 
       {/* ===== SOCIAL PROOF ===== */}
-      <section className="w-full max-w-[960px] border-b border-gray-100 bg-white px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]">
+      <ScrollReveal className="w-full">
+      <section className="w-full max-w-[960px] mx-auto border-b border-gray-100 bg-white px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]">
         <div className="max-w-[676px] mx-auto flex flex-col gap-4 items-center">
           <h2 className="text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 text-center w-full">
             Backed by Experience, Trusted by Leaders.
@@ -175,9 +177,11 @@ export default function Home() {
           <img src="/images/trust-logos/logo6.svg" alt="Les Mills" className="h-[16px] w-[163px] shrink-0" />
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ===== PAIN POINTS ===== */}
-      <section className="w-full max-w-[960px] bg-white px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]">
+      <ScrollReveal className="w-full">
+      <section className="w-full max-w-[960px] mx-auto bg-white px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
           {/* Left side */}
           <div className="lg:w-[328px] lg:ml-[85px]">
@@ -205,9 +209,9 @@ export default function Home() {
           </div>
 
           {/* Right side — pain point cards */}
-          <div className="lg:ml-auto lg:mr-[60px] w-full lg:w-[396px] flex flex-col gap-4">
-            {painPoints.map((item) => (
-              <div key={item.title} className="flex gap-2 items-start w-full">
+          <div className="lg:ml-auto lg:mr-[60px] w-full lg:w-[396px] flex flex-col gap-4 reveal-stagger">
+            {painPoints.map((item, i) => (
+              <div key={item.title} className="stagger-item flex gap-2 items-start w-full" style={{ "--stagger-index": i } as React.CSSProperties}>
                 <span className="w-[26px] flex items-center justify-center text-brown shrink-0 mt-[4px]">
                   <item.Icon />
                 </span>
@@ -224,6 +228,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ===== STRATEGY ===== */}
       <section
@@ -242,6 +247,7 @@ export default function Home() {
         </div>
 
         {/* Feature 1: Roadmap — text left, image right */}
+        <ScrollReveal>
         <div className="mt-10 lg:mt-[95px] flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
           <div className="flex gap-2 lg:w-[340px] shrink-0 lg:pt-[57px]">
             <span className="text-brown shrink-0 mt-1">
@@ -260,17 +266,20 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="relative w-full lg:w-[489px] aspect-[489/283] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden shrink-0">
+          <div className="group relative w-full lg:w-[489px] aspect-[489/283] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden shrink-0">
             <Image
               src="/images/strategy/roadmap.png"
               alt="Product roadmap example"
               fill
-              className="object-cover rounded-xl"
+              className="object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         </div>
 
+        </ScrollReveal>
+
         {/* Feature 2: Slack + Office Hours — images left, text right */}
+        <ScrollReveal>
         <div className="mt-10 lg:mt-[68px] flex flex-col-reverse lg:flex-row gap-6 lg:gap-8 items-start">
           <div className="relative w-full lg:w-[470px] shrink-0">
             <div className="relative w-full lg:w-[339px] aspect-[339/280] overflow-hidden">
@@ -311,7 +320,10 @@ export default function Home() {
           </div>
         </div>
 
+        </ScrollReveal>
+
         {/* Feature 3: Async delivery — text left, image right */}
+        <ScrollReveal>
         <div className="mt-10 lg:mt-[68px] flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
           <div className="flex gap-2 lg:w-[340px] shrink-0 lg:pt-[85px]">
             <span className="text-brown shrink-0 mt-1">
@@ -330,17 +342,20 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="relative w-full lg:w-[489px] aspect-[489/318] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden shrink-0">
+          <div className="group relative w-full lg:w-[489px] aspect-[489/318] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden shrink-0">
             <Image
               src="/images/strategy/async-loom.png"
               alt="Loom video walkthrough preview"
               fill
-              className="object-cover rounded-xl"
+              className="object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         </div>
 
+        </ScrollReveal>
+
         {/* What you'll notice */}
+        <ScrollReveal>
         <div className="max-w-[678px] mx-auto text-center mt-10 lg:mt-[52px]">
           <h3 className="text-[22px] font-semibold leading-[30px] tracking-[-1.4px] text-gray-900">
             What you&apos;ll notice
@@ -351,6 +366,7 @@ export default function Home() {
             <strong>less energy wasted on uncertainty</strong>.
           </p>
         </div>
+        </ScrollReveal>
       </section>
 
       {/* ===== CASE STUDIES ===== */}
@@ -362,13 +378,14 @@ export default function Home() {
         </div>
 
         {/* Case Study 1: MovesMethod */}
+        <ScrollReveal>
         <div className="mt-8 lg:mt-[68px] flex flex-col lg:flex-row gap-6 lg:gap-0 max-w-[688px] lg:max-w-none mx-auto lg:mx-0 lg:pl-[64px]">
-          <div className="relative w-full lg:w-[368px] aspect-[368/374] lg:aspect-auto lg:h-[374px] overflow-hidden shrink-0 lg:-ml-[75px]">
+          <div className="group relative w-full lg:w-[368px] aspect-[368/374] lg:aspect-auto lg:h-[374px] overflow-hidden shrink-0 lg:-ml-[75px]">
             <Image
               src="/images/case-studies/movesmethod.png"
               alt="MovesMethod App MVP screens"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
           <div className="flex flex-col gap-8 lg:ml-[-27px] lg:pt-0">
@@ -413,7 +430,10 @@ export default function Home() {
           </div>
         </div>
 
+        </ScrollReveal>
+
         {/* Case Study 2: Xero */}
+        <ScrollReveal>
         <div className="mt-10 lg:mt-[40px] flex flex-col-reverse lg:flex-row gap-6 lg:gap-0 max-w-[688px] lg:max-w-none mx-auto lg:mx-0 lg:pl-[139px]">
           <div className="flex flex-col gap-8 lg:w-[422px]">
             <div className="flex flex-col gap-4">
@@ -454,21 +474,23 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="relative w-full lg:w-[336px] aspect-[336/269] lg:aspect-auto lg:h-[269px] overflow-hidden shrink-0 lg:ml-[10px] lg:mt-[63px]">
+          <div className="group relative w-full lg:w-[336px] aspect-[336/269] lg:aspect-auto lg:h-[269px] overflow-hidden shrink-0 lg:ml-[10px] lg:mt-[63px]">
             <Image
               src="/images/case-studies/xero.png"
               alt="Xero Guided Setup mobile screens"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         </div>
+        </ScrollReveal>
       </section>
 
       {/* ===== PRICING ===== */}
+      <ScrollReveal className="w-full">
       <section
         id="pricing"
-        className="w-full max-w-[960px] lg:rounded-xl bg-[#f3f4f6] px-5 md:px-8 lg:px-[32px] py-10 lg:py-[40px]"
+        className="w-full max-w-[960px] mx-auto lg:rounded-xl bg-[#f3f4f6] px-5 md:px-8 lg:px-[32px] py-10 lg:py-[40px]"
       >
         <div className="max-w-[705px] mx-auto text-center">
           <h2 className="inline-block bg-accent-yellow-light rounded-xl text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900 px-[14px] py-[4px]">
@@ -524,7 +546,7 @@ export default function Home() {
             <div className="px-6 lg:px-8 pb-6 lg:pb-8 pt-6">
               <a
                 href="#"
-                className="flex h-[44px] lg:h-[40px] w-full items-center justify-center rounded-[10px] bg-gray-1 text-[14px] font-semibold text-white hover:bg-gray-700 transition-colors"
+                className="flex h-[44px] lg:h-[40px] w-full items-center justify-center rounded-[10px] bg-gray-1 text-[14px] font-semibold text-white hover:bg-gray-700 hover:scale-[1.02] hover:shadow-lg transition-all duration-200"
               >
                 Check an example audit
               </a>
@@ -576,7 +598,7 @@ export default function Home() {
             <div className="px-6 lg:px-8 pb-6 lg:pb-8 pt-6">
               <a
                 href="#book"
-                className="flex h-[44px] lg:h-[40px] w-full items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 transition"
+                className="flex h-[44px] lg:h-[40px] w-full items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 hover:scale-[1.02] hover:shadow-lg transition-all duration-200"
               >
                 Book a 15-minute intro
               </a>
@@ -584,11 +606,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ===== CTA ===== */}
+      <ScrollReveal className="w-full">
       <section
         id="book"
-        className="w-full max-w-[960px] bg-white border-b border-gray-100 px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]"
+        className="w-full max-w-[960px] mx-auto bg-white border-b border-gray-100 px-5 md:px-8 lg:px-0 py-10 lg:py-[40px]"
       >
         <div className="max-w-[705px] mx-auto flex flex-col items-center gap-4 text-center">
           <h2 className="text-[28px] font-semibold leading-9 tracking-[-0.6px] text-gray-900">
@@ -600,12 +624,13 @@ export default function Home() {
           </p>
           <a
             href="#"
-            className="mt-4 flex h-[44px] lg:h-[40px] w-full max-w-[524px] items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 transition"
+            className="mt-4 flex h-[44px] lg:h-[40px] w-full max-w-[524px] items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 hover:scale-[1.02] hover:shadow-lg transition-all duration-200"
           >
             Book a 15-minute intro
           </a>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ===== FOOTER ===== */}
       <footer className="w-full max-w-[960px] flex flex-col md:flex-row items-center justify-between gap-4 px-5 md:px-8 lg:px-[60px] py-6 lg:py-0 lg:h-[96px]">

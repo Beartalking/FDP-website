@@ -19,18 +19,18 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div className="hidden lg:flex items-center gap-8">
-          <a href="#strategy" className="text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors">
+          <a href="#strategy" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
             Strategy
           </a>
-          <a href="#work" className="text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors">
+          <a href="#work" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
             Work
           </a>
-          <a href="#pricing" className="text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors">
+          <a href="#pricing" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
             Pricing
           </a>
           <a
             href="#book"
-            className="flex h-[44px] w-[120px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#1c190d] hover:brightness-95 transition"
+            className="flex h-[44px] w-[120px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#1c190d] hover:brightness-95 hover:scale-[1.02] hover:shadow-lg transition-all duration-200"
           >
             Book Intro
           </a>

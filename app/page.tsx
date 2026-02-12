@@ -128,7 +128,9 @@ export default function Home() {
             </p>
           </div>
           <a
-            href="#book"
+            href="https://calendly.com/bearliu/15-mins-fdp-intro"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hero-fade-in self-start flex h-[44px] lg:h-[40px] w-[216px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#0a0a0a] hover:scale-[1.02] hover:shadow-lg hover:brightness-95 transition-all duration-200"
           >
             Book your intro
@@ -158,9 +160,9 @@ export default function Home() {
           <span className="rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white whitespace-nowrap">
             Ex-Xero Product Designer
           </span>
-          <span className="rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white whitespace-nowrap">
+          <a href="https://www.uxnewzealand.com/past-speakers/bear-liu-a" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white whitespace-nowrap hover:brightness-110 transition-all">
             UX New Zealand Speaker
-          </span>
+          </a>
           <span className="rounded-lg bg-brown px-[10px] py-1 text-[12px] font-medium text-white whitespace-nowrap">
             B2C &amp; B2B Experience
           </span>
@@ -169,12 +171,12 @@ export default function Home() {
           <span className="text-[22px] font-semibold tracking-[-1.4px] text-gray-700 shrink-0 whitespace-nowrap">
             Trusted by
           </span>
-          <img src="/images/trust-logos/xero.svg" alt="Xero" className="h-[55px] w-[55px] shrink-0" />
-          <img src="/images/trust-logos/uxnz.svg" alt="UX New Zealand" className="h-[52px] w-[68px] shrink-0" />
-          <img src="/images/trust-logos/logo3.svg" alt="Partner" className="h-[55px] w-[55px] shrink-0" />
-          <img src="/images/trust-logos/logo4.svg" alt="Fisher & Paykel" className="h-[16px] w-[132px] shrink-0" />
-          <img src="/images/trust-logos/logo5.svg" alt="Vodafone" className="h-[55px] w-[49px] shrink-0" />
-          <img src="/images/trust-logos/logo6.svg" alt="Les Mills" className="h-[16px] w-[163px] shrink-0" />
+          <img src="/images/trust-logos/xero.svg" alt="Xero" className="h-[55px] w-[55px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/uxnz.svg" alt="UX New Zealand" className="h-[52px] w-[68px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/logo3.svg" alt="Partner" className="h-[55px] w-[55px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/logo4.svg" alt="Fisher & Paykel" className="h-[16px] w-[132px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/logo5.svg" alt="Vodafone" className="h-[55px] w-[49px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/logo6.svg" alt="Les Mills" className="h-[16px] w-[163px] shrink-0 transition-transform duration-200 hover:scale-110" />
         </div>
       </section>
       </ScrollReveal>
@@ -545,7 +547,9 @@ export default function Home() {
             </div>
             <div className="px-6 lg:px-8 pb-6 lg:pb-8 pt-6">
               <a
-                href="#"
+                href="https://www.notion.so/bearliu/Sample-Product-Audit-2e301940987e801abc0de8ded40f12f7?source=copy_link"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-[44px] lg:h-[40px] w-full items-center justify-center rounded-[10px] bg-gray-1 text-[14px] font-semibold text-white hover:bg-gray-700 hover:scale-[1.02] hover:shadow-lg transition-all duration-200"
               >
                 Check an example audit
@@ -597,7 +601,9 @@ export default function Home() {
             </div>
             <div className="px-6 lg:px-8 pb-6 lg:pb-8 pt-6">
               <a
-                href="#book"
+                href="https://calendly.com/bearliu/15-mins-fdp-intro"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-[44px] lg:h-[40px] w-full items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 hover:scale-[1.02] hover:shadow-lg transition-all duration-200"
               >
                 Book a 15-minute intro
@@ -623,7 +629,9 @@ export default function Home() {
             quickly assess what matters most and how we&apos;d start.
           </p>
           <a
-            href="#"
+            href="https://calendly.com/bearliu/15-mins-fdp-intro"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-4 flex h-[44px] lg:h-[40px] w-full max-w-[524px] items-center justify-center rounded-[10px] bg-accent-yellow-light text-[14px] font-semibold text-gray-900 hover:brightness-95 hover:scale-[1.02] hover:shadow-lg transition-all duration-200"
           >
             Book a 15-minute intro
@@ -638,10 +646,10 @@ export default function Home() {
           © 2026 Bearliu.com. All rights reserved.
         </p>
         <div className="flex items-center gap-4">
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="size-6 flex items-center justify-center hover:opacity-70 transition-opacity">
+          <a href="https://www.linkedin.com/in/bearliu/" target="_blank" rel="noopener noreferrer" className="size-6 flex items-center justify-center hover:opacity-70 transition-opacity">
             <img src="/images/social/linkedin.svg" alt="LinkedIn" className="size-6" />
           </a>
-          <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="size-6 hover:opacity-70 transition-opacity">
+          <a href="https://x.com/bearliu" target="_blank" rel="noopener noreferrer" className="size-6 hover:opacity-70 transition-opacity">
             <img src="/images/social/x.svg" alt="X" className="size-6" />
           </a>
           <a href="mailto:bear@beartalking.com" className="size-6 hover:opacity-70 transition-opacity">

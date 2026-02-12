@@ -43,7 +43,9 @@ export default function Nav() {
             Pricing
           </a>
           <a
-            href="#book"
+            href="https://calendly.com/bearliu/15-mins-fdp-intro"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex h-[44px] w-[120px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#1c190d] hover:brightness-95 hover:scale-[1.02] hover:shadow-lg transition-all duration-200"
           >
             Book Intro
@@ -75,7 +77,9 @@ export default function Nav() {
             Pricing
           </a>
           <a
-            href="#book"
+            href="https://calendly.com/bearliu/15-mins-fdp-intro"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="flex h-[44px] items-center justify-center rounded-lg bg-accent-yellow text-[14px] font-semibold text-[#1c190d]"
           >

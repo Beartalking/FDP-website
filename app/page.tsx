@@ -287,7 +287,7 @@ export default function Home() {
             team can align on and your developers can execute.
           </p>
         </div>
-        <div className="absolute left-[416px] top-[175px] w-[489px] h-[283px] rounded-xl shadow-[3px_3px_9px_0px_rgba(25,35,174,0.1)] overflow-hidden">
+        <div className="absolute left-[416px] top-[175px] w-[489px] h-[283px] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden">
           <Image
             src="/images/strategy/roadmap.png"
             alt="Product roadmap example"
@@ -305,7 +305,7 @@ export default function Home() {
             className="object-cover"
           />
         </div>
-        <div className="absolute left-[217px] top-[637px] w-[303px] h-[189px] rounded-[4px] shadow-[2px_2px_7px_0px_rgba(28,110,217,0.1),10px_7px_12px_0px_rgba(28,110,217,0.09),22px_17px_16px_0px_rgba(28,110,217,0.05)]">
+        <div className="absolute left-[217px] top-[637px] w-[303px] h-[189px] rounded-[4px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08),0px_8px_16px_0px_rgba(0,0,0,0.06)]">
           <div className="relative w-full h-full overflow-hidden rounded-[4px]">
             <Image
               src="/images/strategy/slack-2.png"
@@ -347,7 +347,7 @@ export default function Home() {
             devs can review and move forward on your own time.
           </p>
         </div>
-        <div className="absolute left-[416px] top-[946px] w-[489px] h-[318px] rounded-xl shadow-[3px_3px_9px_0px_rgba(25,35,174,0.1)] overflow-hidden">
+        <div className="absolute left-[416px] top-[946px] w-[489px] h-[318px] rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] overflow-hidden">
           <Image
             src="/images/strategy/async-loom.png"
             alt="Loom video walkthrough preview"

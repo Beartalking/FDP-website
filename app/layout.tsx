@@ -28,7 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} antialiased`}>
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

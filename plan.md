@@ -306,7 +306,7 @@ Deploy the website to Vercel with automatic deployments from Git.
    - ✅ Nav logo: hover scale + color change
    - ✅ Scroll-triggered reveal animations on all sections
 
-### Current Status — RESUME HERE
+### Current Status
 **All phases complete. Website is live at bearliu.com.**
 
 ---
@@ -341,6 +341,15 @@ Deploy the website to Vercel with automatic deployments from Git.
 - [x] Links navigate correctly (all CTAs wired to real URLs)
 - [x] Interactive elements respond to user input
 
+### Accessibility
+- [x] Semantic HTML landmarks (header, main, nav, footer)
+- [x] Skip-to-content link for keyboard users
+- [x] Focus-visible styles on all interactive elements
+- [x] Correct heading hierarchy (no skipped levels)
+- [x] aria-label on icon-only links
+- [x] Lazy loading on below-fold images
+- [ ] og:image for social sharing previews
+
 ### Performance
 - [ ] Lighthouse score > 90 for Performance
 - [x] Images are optimized
@@ -369,6 +378,29 @@ Deploy the website to Vercel with automatic deployments from Git.
 8. ✅ Custom domain bearliu.com is live with HTTPS
 
 ---
+
+## Phase 9: Accessibility Audit Fixes ✅ COMPLETED
+
+### What was done
+Used Playwright to audit bearliu.com across accessibility, SEO, performance, responsive, and semantics. Fixed all issues that don't require design/content input.
+
+1. **Footer icon links** — Added `aria-label` to LinkedIn, X, Email links for screen readers
+2. **`<main>` landmark** — Wrapped all content sections in `<main id="main-content">`
+3. **Skip-to-content link** — Added visually hidden skip link in layout.tsx, styled in globals.css
+4. **`:focus-visible` styles** — Added yellow outline ring for keyboard navigation
+5. **Heading hierarchy** — Changed pain point H4 → H3 (was skipping H3 under H2)
+6. **`<header>` wrapper** — Wrapped Nav component in semantic `<header>` element
+7. **Lazy-load images** — Added `loading="lazy"` to 6 trust logo `<img>` tags
+
+### Files modified
+- `app/globals.css` — focus-visible + skip-link styles
+- `app/layout.tsx` — skip-to-content link
+- `app/page.tsx` — `<header>`, `<main>`, heading fix, aria-labels, lazy-load
+
+### Still TODO (requires user input)
+- [ ] Add `og:image` meta tag (needs an image asset)
+- [ ] Investigate mobile layout collapse in Strategy + Case Studies sections
+- [ ] Lighthouse Performance score > 90
 
 ## Next Steps After Deployment
 

@@ -92,8 +92,11 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center bg-white">
       {/* ===== NAVIGATION ===== */}
-      <Nav />
+      <header>
+        <Nav />
+      </header>
 
+      <main id="main-content">
       {/* ===== HERO ===== */}
       <section className="relative w-full max-w-[960px] min-h-[600px] lg:min-h-0 lg:h-[439px] overflow-hidden lg:rounded-[16px] border-b border-[#bebebe]">
         {/* Mobile bg — portrait crop */}
@@ -171,12 +174,12 @@ export default function Home() {
           <span className="text-[22px] font-semibold tracking-[-1.4px] text-gray-700 shrink-0 whitespace-nowrap">
             Trusted by
           </span>
-          <img src="/images/trust-logos/xero.svg" alt="Xero" className="h-[55px] w-[55px] shrink-0 transition-transform duration-200 hover:scale-110" />
-          <img src="/images/trust-logos/uxnz.svg" alt="UX New Zealand" className="h-[52px] w-[68px] shrink-0 transition-transform duration-200 hover:scale-110" />
-          <img src="/images/trust-logos/logo3.svg" alt="Partner" className="h-[55px] w-[55px] shrink-0 transition-transform duration-200 hover:scale-110" />
-          <img src="/images/trust-logos/logo4.svg" alt="Fisher & Paykel" className="h-[16px] w-[132px] shrink-0 transition-transform duration-200 hover:scale-110" />
-          <img src="/images/trust-logos/logo5.svg" alt="Vodafone" className="h-[55px] w-[49px] shrink-0 transition-transform duration-200 hover:scale-110" />
-          <img src="/images/trust-logos/logo6.svg" alt="Les Mills" className="h-[16px] w-[163px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/xero.svg" alt="Xero" loading="lazy" className="h-[55px] w-[55px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/uxnz.svg" alt="UX New Zealand" loading="lazy" className="h-[52px] w-[68px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/logo3.svg" alt="Partner" loading="lazy" className="h-[55px] w-[55px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/logo4.svg" alt="Fisher & Paykel" loading="lazy" className="h-[16px] w-[132px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/logo5.svg" alt="Vodafone" loading="lazy" className="h-[55px] w-[49px] shrink-0 transition-transform duration-200 hover:scale-110" />
+          <img src="/images/trust-logos/logo6.svg" alt="Les Mills" loading="lazy" className="h-[16px] w-[163px] shrink-0 transition-transform duration-200 hover:scale-110" />
         </div>
       </section>
       </ScrollReveal>
@@ -218,9 +221,9 @@ export default function Home() {
                   <item.Icon />
                 </span>
                 <div className="flex-1 lg:w-[360px]">
-                  <h4 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
+                  <h3 className="text-[18px] font-semibold leading-[26px] tracking-[-0.8px] text-gray-900">
                     {item.title}
-                  </h4>
+                  </h3>
                   <p className="text-[14px] leading-5 tracking-[-0.6px] text-gray-700">
                     {item.desc}
                   </p>
@@ -640,20 +643,22 @@ export default function Home() {
       </section>
       </ScrollReveal>
 
+      </main>
+
       {/* ===== FOOTER ===== */}
       <footer className="w-full max-w-[960px] flex flex-col md:flex-row items-center justify-between gap-4 px-5 md:px-8 lg:px-[60px] py-6 lg:py-0 lg:h-[96px]">
         <p className="text-[16px] leading-6 tracking-[-0.8px] text-gray-500">
           © 2026 Bearliu.com. All rights reserved.
         </p>
         <div className="flex items-center gap-4">
-          <a href="https://www.linkedin.com/in/bearliu/" target="_blank" rel="noopener noreferrer" className="size-6 flex items-center justify-center hover:opacity-70 transition-opacity">
-            <img src="/images/social/linkedin.svg" alt="LinkedIn" className="size-6" />
+          <a href="https://www.linkedin.com/in/bearliu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="size-6 flex items-center justify-center hover:opacity-70 transition-opacity">
+            <img src="/images/social/linkedin.svg" alt="" className="size-6" />
           </a>
-          <a href="https://x.com/bearliu" target="_blank" rel="noopener noreferrer" className="size-6 hover:opacity-70 transition-opacity">
-            <img src="/images/social/x.svg" alt="X" className="size-6" />
+          <a href="https://x.com/bearliu" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="size-6 hover:opacity-70 transition-opacity">
+            <img src="/images/social/x.svg" alt="" className="size-6" />
           </a>
-          <a href="mailto:bear@beartalking.com" className="size-6 hover:opacity-70 transition-opacity">
-            <img src="/images/social/email.svg" alt="Email" className="size-6" />
+          <a href="mailto:bear@beartalking.com" aria-label="Email" className="size-6 hover:opacity-70 transition-opacity">
+            <img src="/images/social/email.svg" alt="" className="size-6" />
           </a>
         </div>
       </footer>

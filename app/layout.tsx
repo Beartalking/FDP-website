@@ -9,11 +9,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Fractional Design Partner — Bear Liu",
+  title: "Bear Design — Fractional Design Partner",
   description:
     "I help early-stage teams make clear product design decisions and ship with momentum, without hiring a full-time designer.",
   openGraph: {
-    title: "Fractional Design Partner — Bear Liu",
+    title: "Bear Design — Fractional Design Partner",
     description:
       "I help early-stage teams make clear product design decisions and ship with momentum, without hiring a full-time designer.",
     url: "https://bearliu.com",

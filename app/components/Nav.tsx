@@ -27,7 +27,7 @@ export default function Nav() {
             <img src="/images/avatar.svg" alt="Bear Liu" className="size-full" />
           </div>
           <span className="text-[16px] tracking-[-0.8px] text-gray-700 transition-colors duration-200 group-hover:text-gray-900">
-            Fractional Design Partner
+            Bear Design
           </span>
         </a>
 

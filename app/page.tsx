@@ -140,7 +140,7 @@ export default function Home() {
           </a>
           <div className="hero-fade-in self-start rounded-xl bg-white/60 backdrop-blur-[5px] px-[10px] py-1 mt-2 lg:mt-4">
             <span className="text-[12px] font-medium text-black">
-              🟢 Accepting 2 new partners in Q1
+              Q1 fully booked · 1 spot open for Q2
             </span>
           </div>
         </div>
@@ -195,13 +195,6 @@ export default function Home() {
             <div>
               <p className="text-[14px] font-semibold leading-5 text-gray-900">Josh Fear</p>
               <p className="text-[12px] leading-4 text-gray-500">Founder, MovesMethod</p>
-            </div>
-            <div className="ml-auto flex items-center gap-1">
-              <span className="text-[12px] font-medium text-brown">Refreshing</span>
-              <span className="text-[12px] text-gray-300">·</span>
-              <span className="text-[12px] font-medium text-brown">Insightful</span>
-              <span className="text-[12px] text-gray-300">·</span>
-              <span className="text-[12px] font-medium text-brown">Efficient</span>
             </div>
           </div>
         </div>

@@ -20,7 +20,7 @@ export default function Nav() {
           : "bg-transparent"
       }`}
     >
-    <nav className="w-full mx-auto px-5 md:px-10 lg:px-16 xl:px-20">
+    <nav className="w-full max-w-[960px] mx-auto px-5 md:px-8 lg:px-0">
       <div className="flex items-center justify-between h-[80px]">
         <a href="#" className="group flex items-center gap-3">
           <div className="relative size-8 overflow-hidden rounded-[20px] transition-transform duration-200 group-hover:scale-110">

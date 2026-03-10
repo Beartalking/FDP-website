@@ -398,14 +398,56 @@ Used Playwright to audit bearliu.com across accessibility, SEO, performance, res
 - `app/page.tsx` — `<header>`, `<main>`, heading fix, aria-labels, lazy-load
 
 ### Still TODO (requires user input)
-- [ ] Add `og:image` meta tag (needs an image asset)
-- [ ] Investigate mobile layout collapse in Strategy + Case Studies sections
-- [ ] Lighthouse Performance score > 90
+- [ ] Add `og:image` meta tag (needs an image asset — user is designing in Figma, two HTML drafts in `og-drafts/`)
+- [ ] Investigate mobile layout collapse in Strategy + Case Studies sections (not yet checked)
+- [x] ~~Lighthouse Performance score > 90~~ — reached 88, improved with WebP conversion; remaining gap is domain redirect (now fixed in Vercel)
 
-## Next Steps After Deployment
+---
 
-- Monitor website performance and analytics
-- Iterate on design based on user feedback
-- Add additional features as needed
-- Keep dependencies updated
-- Consider adding a CMS for content management (if needed)
+## Phase 10: Branding & Content Updates ✅ COMPLETED
+
+### What was done
+
+1. **Branding rename** — Nav title "Fractional Design Partner" → "Bear Design", page title updated to "Bear Design — Fractional Design Partner"
+2. **Hero availability** — "🟢 Accepting 2 new partners in Q1" → "Q1 fully booked · 1 spot open for Q2"
+3. **Client testimonials** — Added Josh Fear testimonials (with avatar photo) to Social Proof section and Case Studies MovesMethod card; removed "Refreshing · Insightful · Efficient" tags from testimonial
+4. **Nav layout fix** — `<header>` was missing `w-full`, causing nav to shrink inside `items-center` flex parent; nav now aligns with 960px content width matching hero image edges
+
+### Files modified
+- `app/components/Nav.tsx` — title text, layout fix
+- `app/page.tsx` — testimonials, availability text, `<header>` w-full
+- `app/layout.tsx` — metadata title update
+- `public/images/josh-fear.jpg` — client avatar
+
+---
+
+## Phase 11: Performance & Accessibility Polish ✅ COMPLETED
+
+### Lighthouse scores (post-optimization)
+| Category | Score |
+|----------|-------|
+| Performance | 88 (up from ~75 pre-WebP) |
+| Accessibility | 96 → expected 100 after contrast fix |
+| Best Practices | 100 |
+| SEO | 100 |
+
+### What was done
+
+1. **Hero images → WebP** — `hero-bg.jpeg` 3.5MB → 438KB WebP; `mobile-hero.png` 1.3MB → 39KB WebP
+2. **Badge contrast fix** — Brown `#A2845E` (3.5:1) → `#7D6340` (5.6:1), passes WCAG AA
+3. **Domain redirect fix** — Changed Vercel config: both `bearliu.com` and `www.bearliu.com` now connect to Production directly (no 307 redirect hop, saves ~790ms)
+
+### Files modified
+- `app/globals.css` — brown color token updated
+- `app/page.tsx` — hero image paths to .webp
+- `public/images/hero-bg.webp` — new file
+- `public/images/mobile-hero.webp` — new file
+
+---
+
+## Next TODO
+
+- [ ] Add `og:image` — user designing in Figma (HTML drafts in `og-drafts/direction-a.html` and `direction-b.html`)
+- [ ] Mobile layout audit — Strategy + Case Studies sections at 375px
+- [ ] Re-run Lighthouse after Vercel redirect fix to confirm Performance > 90
+- [ ] Consider Geist font switch (HTML preview was explored, user deferred decision)

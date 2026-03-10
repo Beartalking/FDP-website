@@ -102,7 +102,7 @@ export default function Home() {
         {/* Mobile bg — portrait crop */}
         <div className="absolute inset-0 lg:hidden">
           <Image
-            src="/images/mobile-hero.png"
+            src="/images/mobile-hero.webp"
             alt="Bear Liu speaking at a conference"
             fill
             className="object-cover object-[50%_50%]"
@@ -112,7 +112,7 @@ export default function Home() {
         {/* Desktop bg — exact Figma crop */}
         <div className="hidden lg:block absolute left-0 top-[-288px] w-[1240px] h-[828px]">
           <Image
-            src="/images/hero-bg.jpeg"
+            src="/images/hero-bg.webp"
             alt=""
             fill
             className="object-cover -scale-y-100 rotate-180"

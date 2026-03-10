@@ -181,6 +181,30 @@ export default function Home() {
           <img src="/images/trust-logos/logo5.svg" alt="Vodafone" loading="lazy" className="h-[55px] w-[49px] shrink-0 transition-transform duration-200 hover:scale-110" />
           <img src="/images/trust-logos/logo6.svg" alt="Les Mills" loading="lazy" className="h-[16px] w-[163px] shrink-0 transition-transform duration-200 hover:scale-110" />
         </div>
+
+        {/* Client Testimonial */}
+        <div className="max-w-[676px] mx-auto mt-10 rounded-2xl border border-[#e5e5ea] bg-[#fafafa] px-6 lg:px-8 py-6">
+          <div className="flex items-start gap-3">
+            <span className="text-[28px] leading-none text-brown select-none shrink-0" aria-hidden="true">&ldquo;</span>
+            <blockquote className="text-[16px] leading-6 tracking-[-0.8px] text-gray-900 italic">
+              You&apos;ve made the collaboration really seamless and painless. Really easy to work with, really fast, really knowledgeable, great communication, great design.
+            </blockquote>
+          </div>
+          <div className="mt-4 flex items-center gap-3 ml-[40px]">
+            <img src="/images/josh-fear.jpg" alt="Josh Fear" className="w-9 h-9 rounded-full object-cover shrink-0" />
+            <div>
+              <p className="text-[14px] font-semibold leading-5 text-gray-900">Josh Fear</p>
+              <p className="text-[12px] leading-4 text-gray-500">Founder, MovesMethod</p>
+            </div>
+            <div className="ml-auto flex items-center gap-1">
+              <span className="text-[12px] font-medium text-brown">Refreshing</span>
+              <span className="text-[12px] text-gray-300">·</span>
+              <span className="text-[12px] font-medium text-brown">Insightful</span>
+              <span className="text-[12px] text-gray-300">·</span>
+              <span className="text-[12px] font-medium text-brown">Efficient</span>
+            </div>
+          </div>
+        </div>
       </section>
       </ScrollReveal>
 
@@ -431,6 +455,16 @@ export default function Home() {
                   <strong>2,000+ Trustpilot reviews at 4.8</strong>).
                 </p>
               </div>
+            </div>
+
+            {/* Client Voice */}
+            <div className="mt-6 rounded-xl bg-[#fafafa] border border-[#e5e5ea] px-5 py-4">
+              <p className="text-[14px] leading-5 tracking-[-0.6px] text-gray-700 italic">
+                &ldquo;Your ability to turn the ideas into an actual visual, bring the ideas to life — that&apos;s been really good to see. And the fact that you communicate with the developers, to bridge that gap between me and the developers — that&apos;s great as well.&rdquo;
+              </p>
+              <p className="mt-2 text-[12px] font-medium text-gray-500">
+                — Josh Fear, Founder
+              </p>
             </div>
           </div>
         </div>

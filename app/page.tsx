@@ -92,7 +92,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center bg-white">
       {/* ===== NAVIGATION ===== */}
-      <header>
+      <header className="w-full">
         <Nav />
       </header>
 

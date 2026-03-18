@@ -22,7 +22,7 @@ export default function Nav() {
     >
     <nav className="w-full max-w-[960px] mx-auto px-5 md:px-8 lg:px-0">
       <div className="flex items-center justify-between h-[80px]">
-        <a href="#" className="group flex items-center gap-3">
+        <a href="/" className="group flex items-center gap-3">
           <div className="relative size-8 overflow-hidden rounded-[20px] transition-transform duration-200 group-hover:scale-110">
             <img src="/images/avatar.svg" alt="Bear Liu" className="size-full" />
           </div>
@@ -33,13 +33,16 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div className="hidden lg:flex items-center gap-8">
-          <a href="#strategy" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
+          <a href="/#strategy" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
             Strategy
           </a>
-          <a href="#work" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
+          <a href="/#work" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
             Work
           </a>
-          <a href="#pricing" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
+          <a href="/podcast" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
+            Podcast
+          </a>
+          <a href="/#pricing" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
             Pricing
           </a>
           <a
@@ -67,13 +70,16 @@ export default function Nav() {
       {/* Mobile menu */}
       {open && (
         <div className="lg:hidden flex flex-col gap-4 pb-6">
-          <a href="#strategy" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
+          <a href="/#strategy" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
             Strategy
           </a>
-          <a href="#work" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
+          <a href="/#work" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
             Work
           </a>
-          <a href="#pricing" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
+          <a href="/podcast" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
+            Podcast
+          </a>
+          <a href="/#pricing" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
             Pricing
           </a>
           <a

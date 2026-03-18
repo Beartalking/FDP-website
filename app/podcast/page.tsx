@@ -33,7 +33,9 @@ const platformLinks = [
 ]
 
 export default function PodcastPage() {
-  const publishedEpisodes = episodes.filter((ep) => ep.youtubeUrl)
+  const publishedEpisodes = episodes
+    .filter((ep) => ep.youtubeUrl)
+    .sort((a, b) => b.number - a.number)
 
   return (
     <div className="flex flex-col items-center bg-white">

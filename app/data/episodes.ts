@@ -35,9 +35,12 @@ export const episodes: Episode[] = [
     company: "ADPList",
     description:
       "Felix Lee from ADPList on vibe coding, why 30% of Figma might disappear, and how founders become translators between design and business.",
-    publishDate: "2026-03-24",
+    publishDate: "2026-03-31",
     coverImage: "/images/podcast/ep02-Felix-Lee.png",
-    youtubeUrl: "",
-    redcircleUrl: "",
+    youtubeUrl: "https://youtu.be/Ims58n4PrNY",
+    spotifyUrl: "https://open.spotify.com/episode/3JMaLBITDWjhS1zjTyhTzU",
+    applePodcastsUrl: "https://podcasts.apple.com/nz/podcast/ep02-free-is-expensive-felix-lee-adplist/id1885803621?i=1000756037827",
+    redcircleUrl:
+      "https://redcircle.com/shows/c3c12e55-1f9c-4b33-8c5c-e01965485b70/ep/c05e8a69-c89b-469a-8ef9-5a5db6651b5b",
   },
 ]

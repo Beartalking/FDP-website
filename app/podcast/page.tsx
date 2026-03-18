@@ -5,7 +5,7 @@ import { episodes } from "../data/episodes"
 const platformLinks = [
   {
     name: "YouTube",
-    href: "https://www.youtube.com/@beartalking",
+    href: "https://www.youtube.com/playlist?list=PL-RK8UwXSeaoDwy7RZmpSrAj5AQirm0Fw",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
@@ -193,7 +193,7 @@ export default function PodcastPage() {
                           <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
                           <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
                         </svg>
-                        Podcast
+                        Listen on Web
                       </a>
                     )}
                   </div>

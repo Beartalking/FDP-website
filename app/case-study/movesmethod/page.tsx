@@ -458,7 +458,7 @@ export default function MovesMethodCaseStudy() {
           <ScrollReveal>
             <div className="mt-12 max-w-[680px] mx-auto rounded-2xl overflow-hidden">
               <Image
-                src={`${IMG_BASE}/testimonial1.avif`}
+                src={`${IMG_BASE}/Testimonial1.avif`}
                 alt="Josh Fear testimonial about the Notion breakdown"
                 width={960}
                 height={400}
@@ -858,7 +858,7 @@ export default function MovesMethodCaseStudy() {
             <ScrollReveal>
               <div className="rounded-2xl overflow-hidden">
                 <Image
-                  src={`${IMG_BASE}/testimonial2.avif`}
+                  src={`${IMG_BASE}/Testimonial2.avif`}
                   alt="Josh Fear testimonial about bridging the gap"
                   width={960}
                   height={400}

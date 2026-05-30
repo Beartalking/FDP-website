@@ -445,9 +445,57 @@ Used Playwright to audit bearliu.com across accessibility, SEO, performance, res
 
 ---
 
+## Phase 12: Multi-Page Expansion ✅ COMPLETED
+
+### Goal
+Grow the single landing page into a multi-route site: add a Podcast page and a full case-study page, with cross-page navigation.
+
+### What was done
+
+1. **Podcast page** (`app/podcast/page.tsx` + `app/data/episodes.ts`)
+   - Episode list driven by `episodes.ts` data file, sorted newest-first
+   - EP01 + EP02 (Felix Lee) with platform links: Spotify, Apple Podcasts, YouTube playlist, RedCircle
+   - Page description and Show Info aligned with actual podcast metadata
+   - `ScaledIframe.tsx` component for embedded players
+
+2. **MovesMethod case study** (`app/case-study/movesmethod/page.tsx`)
+   - Full case-study page with all assets
+   - Fixed testimonial image paths to match actual filename casing
+
+3. **Navigation**
+   - Added Podcast link to Nav
+   - Logo href set to `/` for cross-page navigation back to home
+
+### Files added/modified
+- `app/podcast/page.tsx` — **new**
+- `app/data/episodes.ts` — **new**, episode data source
+- `app/case-study/movesmethod/page.tsx` — **new**
+- `app/components/ScaledIframe.tsx` — **new**
+- `app/components/Nav.tsx` — Podcast link, logo href
+
+---
+
+## Phase 13: Vercel Analytics & Speed Insights ✅ COMPLETED
+
+### Goal
+Enable visitor/pageview tracking and real-user performance monitoring (Core Web Vitals).
+
+### What was done
+- Installed `@vercel/analytics` and `@vercel/speed-insights`
+- Mounted `<Analytics />` + `<SpeedInsights />` in root `app/layout.tsx` (App Router → site-wide)
+- `npm run build` passes clean (6 static routes)
+- `.gitignore` cleanup: local working files (`screenshots/`, `temp/`, `reference/`, `logos/`, `lighthouse-report.json`, root logo PNGs, `.claude/`, stray `Icon` file) now ignored
+
+### Remaining manual step (Vercel Dashboard)
+- [ ] In Vercel project → **Analytics** tab → click **Enable** (the package only adds the beacon; the dashboard toggle starts collection)
+- [ ] Speed Insights enables itself on first deploy with the package present; confirm data appears after visiting the site
+
+---
+
 ## Next TODO
 
-- [ ] Add `og:image` — user designing in Figma (HTML drafts in `og-drafts/direction-a.html` and `direction-b.html`)
+- [ ] **Enable Analytics in Vercel Dashboard** (manual toggle — see Phase 13)
+- [ ] Add `og:image` — user designing in Figma (HTML drafts in `og-drafts/direction-a.html` and `direction-b.html`); `layout.tsx` openGraph still has no `image`
 - [ ] Mobile layout audit — Strategy + Case Studies sections at 375px
 - [ ] Re-run Lighthouse after Vercel redirect fix to confirm Performance > 90
 - [ ] Consider Geist font switch (HTML preview was explored, user deferred decision)

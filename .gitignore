@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local working files (not site assets — those live in public/)
+.claude/
+/screenshots/
+/temp/
+/reference/
+/logos/
+/lighthouse-report.json
+/loom-preview-animation.gif
+/FDP-Logo.png
+/FDP-Logo-email-signature.png
+Icon?

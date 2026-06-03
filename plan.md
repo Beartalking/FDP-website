@@ -504,7 +504,13 @@ Enable visitor/pageview tracking and real-user performance monitoring (Core Web 
 
 # Phase 14: bearliu.com Hub Upgrade (Content Flywheel)
 
-**Status:** PLANNED — awaiting Bear's go-ahead before implementation. Plan written 2026-06-03.
+**Status:** IN PROGRESS. 14.0–14.2 done & live (2026-06-03). Email forwarding test confirmed working by Bear.
+
+**RESUME HERE (next session):**
+- 14.3 (Newsletter signup + YouTube intro embed) — blocked on Bear providing the Substack newsletter URL + the YouTube intro video link.
+- 14.4 (Framework library + homepage sections) — waiting on Claude Design's output (Bear driving, using DESIGN-SYSTEM.md).
+- 14.5 (Obsidian sync script) + 14.6 (Bear Academy section) — optional, later.
+- To re-port/add a teardown: `node scripts/port-teardown.mjs --report "<vault path>" --slug <slug> --date <YYYY-MM-DD> --tags "teardown,..."` then commit. Apple Health still excluded (incomplete).
 
 ## Context
 

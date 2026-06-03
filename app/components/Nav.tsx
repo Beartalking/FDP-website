@@ -45,7 +45,7 @@ export default function Nav() {
           <a href="/blog" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
             Writing
           </a>
-          <a href="https://en.bear.academy" target="_blank" rel="noopener noreferrer" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
+          <a href="https://newsletter.bearliu.com" target="_blank" rel="noopener noreferrer" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
             Newsletter
           </a>
           <a href="https://www.youtube.com/@Bearliu" target="_blank" rel="noopener noreferrer" className="relative text-[16px] tracking-[-0.8px] text-gray-500 hover:text-gray-900 transition-colors after:absolute after:left-0 after:bottom-[-2px] after:h-[1.5px] after:w-0 after:bg-gray-900 after:transition-all after:duration-200 hover:after:w-full">
@@ -91,7 +91,7 @@ export default function Nav() {
           <a href="/blog" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
             Writing
           </a>
-          <a href="https://en.bear.academy" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
+          <a href="https://newsletter.bearliu.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">
             Newsletter
           </a>
           <a href="https://www.youtube.com/@Bearliu" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="text-[16px] tracking-[-0.8px] text-gray-700 py-2">

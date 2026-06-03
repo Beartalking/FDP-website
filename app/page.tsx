@@ -694,6 +694,12 @@ export default function Home() {
           <a href="https://x.com/bearliu" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="size-6 hover:opacity-70 transition-opacity">
             <img src="/images/social/x.svg" alt="" className="size-6" />
           </a>
+          <a href="https://www.youtube.com/@Bearliu" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="size-6 hover:opacity-70 transition-opacity">
+            <img src="/images/social/youtube.svg" alt="" className="size-6" />
+          </a>
+          <a href="https://en.bear.academy" target="_blank" rel="noopener noreferrer" aria-label="Newsletter" className="size-6 hover:opacity-70 transition-opacity">
+            <img src="/images/social/newsletter.svg" alt="" className="size-6" />
+          </a>
           <a href="mailto:hi@bearliu.com" aria-label="Email" className="size-6 hover:opacity-70 transition-opacity">
             <img src="/images/social/email.svg" alt="" className="size-6" />
           </a>

@@ -507,7 +507,7 @@ Enable visitor/pageview tracking and real-user performance monitoring (Core Web 
 **Status:** IN PROGRESS. 14.0–14.2 done & live (2026-06-03). Email forwarding test confirmed working by Bear.
 
 **RESUME HERE (next session):**
-- 14.3 (Newsletter signup + YouTube intro embed) — blocked on Bear providing the Substack newsletter URL + the YouTube intro video link.
+- 14.3 (Newsletter + Video) — ✅ DONE 2026-06-03 (lightweight links, not designed sections — those stay with Claude Design in 14.4). Added **Newsletter** (→ `https://en.bear.academy`) + **Video** (→ `https://www.youtube.com/@Bearliu`) to Nav (desktop gap-8→gap-6 to fit 7 links + mobile menu), and YouTube + Newsletter icons to both footers (homepage inline + shared `Footer.tsx`). New icons: `public/images/social/{youtube,newsletter}.svg`. **PENDING:** Bear is setting up a domain redirect for the newsletter; once done, swap `en.bear.academy` → the new domain (Bear will ping me). Build passes, 0 console errors.
 - 14.4 (Framework library + homepage sections) — waiting on Claude Design's output (Bear driving, using DESIGN-SYSTEM.md).
 - 14.5 (Obsidian sync script) + 14.6 (Bear Academy section) — optional, later.
 - To re-port/add a teardown: `node scripts/port-teardown.mjs --report "<vault path>" --slug <slug> --date <YYYY-MM-DD> --tags "teardown,..."` then commit. Apple Health still excluded (incomplete).

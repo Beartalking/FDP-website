@@ -499,3 +499,88 @@ Enable visitor/pageview tracking and real-user performance monitoring (Core Web 
 - [ ] Mobile layout audit — Strategy + Case Studies sections at 375px
 - [ ] Re-run Lighthouse after Vercel redirect fix to confirm Performance > 90
 - [ ] Consider Geist font switch (HTML preview was explored, user deferred decision)
+
+---
+
+# Phase 14: bearliu.com Hub Upgrade (Content Flywheel)
+
+**Status:** PLANNED — awaiting Bear's go-ahead before implementation. Plan written 2026-06-03.
+
+## Context
+
+Source: Bear's "Personal Strategy Recalibrate" sketch (30 May), top half. bearliu.com evolves from an FDP marketing site into a **business hub / brand / international-clients** aggregator. Six spokes off the hub:
+
+- **Blog** (Pro insights) — flagship content = product teardown write-ups
+- **Newsletter** (Report | Curation) — Substack, rebranded to bearliu.com (English)
+- **Podcast** (Bear Academy) — currently the site shows "Design Founders"; converts to Bear Academy in the final phase
+- **Video** (YouTube intro) — embed, not its own route
+- **Framework** (Product teardown) — the 6-piece methodology library
+- **Email** — hi@bearliu.com
+
+Register: English, professional FDP voice (not the Chinese creator voice). Visual base stays consistent with the current site.
+
+## Content sources (Obsidian — `Bear Vault/`)
+
+- **Teardown reports** — `20_Projects/Product Teardown/N. <Name>/Teardown Report - <Name> (FDP).md`. 5 done: Linear, Arc, Dia, Raycast, Apple Health. Clean markdown (H1 + blockquote meta header + H2 lenses, ~3000 words), **no wikilinks/embeds/images** → trivial MDX port.
+- **Frameworks** — `20_Projects/FDP/Methodology/*.md`. 6: Cognitive Budget Audit, Ecosystem Health Audit, Fit Audit, Habit Mortgage, Interaction Model Audit, Moving List. YAML frontmatter (`type, framework, related, cases`) + consistent sections, 350-560 words. Flywheel is pre-wired: frameworks list `cases:` (the teardowns), and teardown lenses are named after frameworks.
+
+## Cadence & richness
+
+Teardowns may reach **1 post/week**. Manual port is fine to start; the weekly cadence is what justifies the optional sync script later. Bear wants blog posts to feel richer than a static blog (HTML-drawn charts, light image motion) — so rendering uses **MDX** (markdown + embeddable components), not plain markdown. Visual richness should come from a **reusable component kit** (mismatch bar, before/after, metric callout, lens divider, scroll reveal), not bespoke per-post work, so weekly cadence stays feasible.
+
+## Role split (IMPORTANT)
+
+- **Design is owned by Claude Design, not by me.** I do NOT design the rich blog visual kit, framework cards, or homepage sections.
+- **My deliverable to unblock Claude Design:** extract the existing site's Design System into an exportable doc (`DESIGN-SYSTEM.md`). Bear sends it to Claude Design as the basis.
+- Claude Design designs Framework cards + homepage sections → delivers back → **I integrate/build**.
+- Applying the *existing* design system to a clean reading layout (blog post typography) is not "new design" and is in my scope. New visual treatments are Claude Design's.
+
+## Phased plan
+
+### Phase 14.0 — Design System extraction (do first; unblocks Claude Design) ✅ DONE 2026-06-03
+Produced `FDP website/DESIGN-SYSTEM.md` (exportable, code-grounded). Covers: colour tokens (brand yellow `#f2cc0d` / yellow-light `#f8d74a` / brown `#7D6340` / paper; neutrals gray-900/700/500/100/1, dark-card), typography (Inter; H2 28 / H3 22 / H4 18 / body 16 / body-sm 14 / button 14 / label 12), layout patterns (`max-w-[960px]` container, `px-5 md:px-8 lg:px-0`, touch targets `h-[44px] lg:h-[40px]`), radius, motion vocabulary (`.reveal` / `.stagger-item` / `.hero-fade-in`, reduced-motion handling), component inventory (Nav, buttons, cards, badges, pricing card, testimonial), a11y patterns (focus-visible, skip-link). Source: `app/globals.css` + patterns in `app/page.tsx`.
+
+### Phase 14.1 — Blog MDX infra + teardown content ✅ BUILT 2026-06-03 (pending Bear review)
+- MDX pipeline: `.mdx` files in `content/blog/`, rendered via `next-mdx-remote` v6 `compileMDX` + components map (`app/components/mdx/`). Future sync script just writes `.mdx`.
+- Routes: `app/blog/page.tsx` (index, date- then teardown-number-sorted) + `app/blog/[slug]/page.tsx` (SSG, long-form reading layout on the existing design system). Data layer `app/lib/blog.ts`. Shared `app/components/Footer.tsx`. Nav gets a "Writing" link.
+- **Porter script** `scripts/port-teardown.mjs` (Node + sharp): resolves Obsidian `![[img]]` embeds (incl. parent-folder 99_Assets), optimises PNG→WebP (≤1600px), pairs each image with its `*Fig N.*` caption into `<Figure>`, writes frontmatter + MDX. Seed of the Phase 14.5 sync script. Read-only on the vault.
+- Ported 4 teardowns: Linear, Arc, Dia, Raycast (Apple Health excluded — incomplete per Bear). ~48 images → WebP in `public/blog/<slug>/`. `npm run build` passes, all 4 prerendered, dev verified 200 + visually checked.
+- Rich chart/animation components: integrated **after** Claude Design delivers. 14.1 ships a clean, readable, on-brand version. Publish-public-now vs hold is Bear's call.
+- **⚠ KNOWN ISSUE (matters for 14.4):** `next-mdx-remote` v6 on this stack (Next 16 / React 19 / Turbopack) **silently drops JSX expression attributes** (`width={1600}` → `undefined`); string attributes (`width="1600"`) survive. Worked around by emitting string attrs + coercing in `Figure`. Before Claude Design's chart components land, either keep their props as string attributes or fix the MDX pipeline (try a different MDX lib / native `@next/mdx`). Documented so it isn't rediscovered the hard way.
+- Open: publish dates — all 4 set to 2026-06-03 (published as a batch); index sorts newest-teardown-first. Bear can adjust dates/order.
+
+### Phase 14.2 — Email hi@bearliu.com (I set this up)
+- **DNS confirmed (2026-06-03):** bearliu.com is registered at **Cloudflare Registrar**, so the DNS zone stays on Cloudflare nameservers (Cloudflare Registrar mandates this); the A/CNAME records were repointed to Vercel for web hosting. So the zone is Cloudflare-managed → **Email Routing is available with no DNS migration.**
+- **Set up Cloudflare Email Routing** for `hi@bearliu.com` → forward to Bear's existing inbox. Email Routing adds MX (+ SPF TXT) records only; these don't touch the A/CNAME pointing web traffic at Vercel, so web and email coexist cleanly.
+- Execution note: enabling Email Routing + verifying the destination address is a Cloudflare dashboard action (Cloudflare sends a confirmation link to the destination inbox — Bear clicks that). I can drive the record setup via Cloudflare API if Bear adds a scoped API token to `.env`, otherwise I provide exact dashboard steps. Destination verification is always Bear's click.
+- Code: swap site email from `bear@beartalking.com` → `hi@bearliu.com` (footer + CTAs).
+- Bear separately researches an economical **send-from** solution (out of my scope).
+- Related (later, not this phase): bear.academy + bearwith.ai are also on Cloudflare — the sketch's bottom half wants bear.academy → forward to bearliu.com, bearwith.ai → forward to newsletter.bt.com.
+
+### Phase 14.3 — Other sub-pages (non-design-heavy plumbing)
+- Newsletter signup integration (Substack embed/link, English "Report | Curation").
+- YouTube intro video embed (on home).
+- (Podcast → Bear Academy conversion is NOT here — see final phase.)
+
+### Phase 14.4 — Framework library + homepage sections (Claude Design → I integrate)
+- Claude Design designs: Framework cards + `/frameworks` page + homepage sections (Newsletter CTA, Framework, Blog). I build/integrate.
+- `/frameworks` index + `/frameworks/[slug]`, reuse Phase 14.1 MDX pipeline.
+- Port 6 frameworks; wire framework ↔ teardown cross-links (the flywheel).
+- Homepage: add Newsletter CTA section, Framework section, Blog section (small content updates to surface the spokes).
+
+### Phase 14.5 — Obsidian → site sync script (OPTIONAL)
+- For the weekly cadence: a small script reads vault MD, maps/adds frontmatter, writes `.mdx` + copies any assets into `content/`. Build only after the manual format + component kit are proven.
+
+### Phase 14.6 — Bear Academy section (FINAL, OPTIONAL)
+- Take down "Design Founders" branding/content on `/podcast` (currently `app/podcast/page.tsx` + the design-founders Apple link).
+- Reuse its style/format to publish **Bear Academy** podcast content instead.
+
+## Dependencies
+- 14.0 blocks Claude Design, which blocks 14.4 integration.
+- 14.1, 14.2, 14.3 can proceed in parallel while Claude Design works.
+- 14.5 and 14.6 are optional and last.
+
+## Open items to confirm at execution time
+- ~~Where bearliu.com DNS is managed~~ — RESOLVED 2026-06-03: Cloudflare Registrar + Cloudflare zone, web records point to Vercel. Email Routing works without migration.
+- For 14.2: whether Bear adds a scoped Cloudflare API token to `.env` (lets me set records programmatically) or wants exact dashboard steps to click himself.
+- Whether to publish the blog publicly before Claude Design's rich visual layer lands, or hold.

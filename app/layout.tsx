@@ -11,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bearliu.com"),
   title: "Bear Design — Fractional Design Partner",
   description:
     "I help early-stage teams make clear product design decisions and ship with momentum, without hiring a full-time designer.",

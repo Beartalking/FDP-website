@@ -540,7 +540,8 @@ Teardowns may reach **1 post/week**. Manual port is fine to start; the weekly ca
 ### Phase 14.0 — Design System extraction (do first; unblocks Claude Design) ✅ DONE 2026-06-03
 Produced `FDP website/DESIGN-SYSTEM.md` (exportable, code-grounded). Covers: colour tokens (brand yellow `#f2cc0d` / yellow-light `#f8d74a` / brown `#7D6340` / paper; neutrals gray-900/700/500/100/1, dark-card), typography (Inter; H2 28 / H3 22 / H4 18 / body 16 / body-sm 14 / button 14 / label 12), layout patterns (`max-w-[960px]` container, `px-5 md:px-8 lg:px-0`, touch targets `h-[44px] lg:h-[40px]`), radius, motion vocabulary (`.reveal` / `.stagger-item` / `.hero-fade-in`, reduced-motion handling), component inventory (Nav, buttons, cards, badges, pricing card, testimonial), a11y patterns (focus-visible, skip-link). Source: `app/globals.css` + patterns in `app/page.tsx`.
 
-### Phase 14.1 — Blog MDX infra + teardown content ✅ BUILT 2026-06-03 (pending Bear review)
+### Phase 14.1 — Blog MDX infra + teardown content ✅ DONE & PUBLISHED 2026-06-03 (commit 0d4cab0, live at bearliu.com/blog)
+- Post-review polish: meta blockquote → clean `<ReportMeta>` labelled card (Author/For/Method; Thesis dropped as it's the excerpt); Nav wordmark "Bear Design" → "Bear Liu"; lead image gets `priority` for LCP. Bear approved publishing this base version without waiting for Claude Design's kit.
 - MDX pipeline: `.mdx` files in `content/blog/`, rendered via `next-mdx-remote` v6 `compileMDX` + components map (`app/components/mdx/`). Future sync script just writes `.mdx`.
 - Routes: `app/blog/page.tsx` (index, date- then teardown-number-sorted) + `app/blog/[slug]/page.tsx` (SSG, long-form reading layout on the existing design system). Data layer `app/lib/blog.ts`. Shared `app/components/Footer.tsx`. Nav gets a "Writing" link.
 - **Porter script** `scripts/port-teardown.mjs` (Node + sharp): resolves Obsidian `![[img]]` embeds (incl. parent-folder 99_Assets), optimises PNG→WebP (≤1600px), pairs each image with its `*Fig N.*` caption into `<Figure>`, writes frontmatter + MDX. Seed of the Phase 14.5 sync script. Read-only on the vault.
@@ -549,7 +550,12 @@ Produced `FDP website/DESIGN-SYSTEM.md` (exportable, code-grounded). Covers: col
 - **⚠ KNOWN ISSUE (matters for 14.4):** `next-mdx-remote` v6 on this stack (Next 16 / React 19 / Turbopack) **silently drops JSX expression attributes** (`width={1600}` → `undefined`); string attributes (`width="1600"`) survive. Worked around by emitting string attrs + coercing in `Figure`. Before Claude Design's chart components land, either keep their props as string attributes or fix the MDX pipeline (try a different MDX lib / native `@next/mdx`). Documented so it isn't rediscovered the hard way.
 - Open: publish dates — all 4 set to 2026-06-03 (published as a batch); index sorts newest-teardown-first. Bear can adjust dates/order.
 
-### Phase 14.2 — Email hi@bearliu.com (I set this up)
+### Phase 14.2 — Email hi@bearliu.com ✅ DONE 2026-06-03
+- Cloudflare Email Routing live: MX (route1/2/3.mx.cloudflare.net) + SPF + DKIM added to the Cloudflare zone via "Add missing records"; rule `hi@bearliu.com → bear@beartalking.com` Active. Web (Vercel A record) untouched. Verified via `dig @julio.ns.cloudflare.com`.
+- Code: homepage `<title>`/OG → "Bear Liu, Fractional Design Partner"; site email (home + blog footers) → `hi@bearliu.com`.
+- Bear still to research a send-from solution separately; when chosen, reconcile SPF/DKIM so forwarding + sending don't conflict.
+
+Original plan notes below:
 - **DNS confirmed (2026-06-03):** bearliu.com is registered at **Cloudflare Registrar**, so the DNS zone stays on Cloudflare nameservers (Cloudflare Registrar mandates this); the A/CNAME records were repointed to Vercel for web hosting. So the zone is Cloudflare-managed → **Email Routing is available with no DNS migration.**
 - **Set up Cloudflare Email Routing** for `hi@bearliu.com` → forward to Bear's existing inbox. Email Routing adds MX (+ SPF TXT) records only; these don't touch the A/CNAME pointing web traffic at Vercel, so web and email coexist cleanly.
 - Execution note: enabling Email Routing + verifying the destination address is a Cloudflare dashboard action (Cloudflare sends a confirmation link to the destination inbox — Bear clicks that). I can drive the record setup via Cloudflare API if Bear adds a scoped API token to `.env`, otherwise I provide exact dashboard steps. Destination verification is always Bear's click.

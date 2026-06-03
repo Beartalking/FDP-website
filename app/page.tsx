@@ -694,7 +694,7 @@ export default function Home() {
           <a href="https://x.com/bearliu" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="size-6 hover:opacity-70 transition-opacity">
             <img src="/images/social/x.svg" alt="" className="size-6" />
           </a>
-          <a href="mailto:bear@beartalking.com" aria-label="Email" className="size-6 hover:opacity-70 transition-opacity">
+          <a href="mailto:hi@bearliu.com" aria-label="Email" className="size-6 hover:opacity-70 transition-opacity">
             <img src="/images/social/email.svg" alt="" className="size-6" />
           </a>
         </div>

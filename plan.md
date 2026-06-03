@@ -504,11 +504,13 @@ Enable visitor/pageview tracking and real-user performance monitoring (Core Web 
 
 # Phase 14: bearliu.com Hub Upgrade (Content Flywheel)
 
-**Status:** IN PROGRESS. 14.0–14.2 done & live (2026-06-03). Email forwarding test confirmed working by Bear.
+**Status:** 14.0–14.3 done & live (2026-06-03). Email + Blog MDX + Newsletter/Video links all shipped. 14.4 onward intentionally PAUSED — see decision below.
+
+**DECISION 2026-06-03 (Bear):** Pause 14.4 + any redesign for now. Two preconditions before resuming: (1) the weekly teardown cadence is proven (run it ~2 more weeks until smooth), and (2) the framework library is richer than it is today (also needs ~2 more weeks of teardowns feeding it — frameworks currently feel thin). Bear also wants a broader site-detail redesign pass eventually, which folds into this same wait. So: no FDP site work until teardowns are humming; revisit ~mid-to-late June.
 
 **RESUME HERE (next session):**
 - 14.3 (Newsletter + Video) — ✅ DONE 2026-06-03 (lightweight links, not designed sections — those stay with Claude Design in 14.4). Added **Newsletter** (→ `https://en.bear.academy`) + **Video** (→ `https://www.youtube.com/@Bearliu`) to Nav (desktop gap-8→gap-6 to fit 7 links + mobile menu), and YouTube + Newsletter icons to both footers (homepage inline + shared `Footer.tsx`). New icons: `public/images/social/{youtube,newsletter}.svg`. Newsletter now points to `https://newsletter.bearliu.com` (domain redirect live, swapped from the temporary `en.bear.academy` on 2026-06-03). Build passes, 0 console errors.
-- 14.4 (Framework library + homepage sections) — waiting on Claude Design's output (Bear driving, using DESIGN-SYSTEM.md).
+- 14.4 (Framework library + homepage sections) — PAUSED (see decision above): waiting on (a) weekly teardown cadence proven, (b) richer framework library, (c) Claude Design's output (Bear driving, using DESIGN-SYSTEM.md).
 - 14.5 (Obsidian sync script) + 14.6 (Bear Academy section) — optional, later.
 - To re-port/add a teardown: `node scripts/port-teardown.mjs --report "<vault path>" --slug <slug> --date <YYYY-MM-DD> --tags "teardown,..."` then commit. Apple Health still excluded (incomplete).
 

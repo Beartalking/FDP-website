@@ -511,7 +511,8 @@ Enable visitor/pageview tracking and real-user performance monitoring (Core Web 
 **RESUME HERE (next session):**
 - 14.3 (Newsletter + Video) — ✅ DONE 2026-06-03 (lightweight links, not designed sections — those stay with Claude Design in 14.4). Added **Newsletter** (→ `https://en.bear.academy`) + **Video** (→ `https://www.youtube.com/@Bearliu`) to Nav (desktop gap-8→gap-6 to fit 7 links + mobile menu), and YouTube + Newsletter icons to both footers (homepage inline + shared `Footer.tsx`). New icons: `public/images/social/{youtube,newsletter}.svg`. Newsletter now points to `https://newsletter.bearliu.com` (domain redirect live, swapped from the temporary `en.bear.academy` on 2026-06-03). Build passes, 0 console errors.
 - 14.4 (Framework library + homepage sections) — PAUSED (see decision above): waiting on (a) weekly teardown cadence proven, (b) richer framework library, (c) Claude Design's output (Bear driving, using DESIGN-SYSTEM.md).
-- 14.5 (Obsidian sync script) + 14.6 (Bear Academy section) — optional, later.
+- 14.6 (Bear Academy section) — ✅ **DONE in working tree 2026-06-07 (pending commit + deploy).** Converted `/podcast` from Design Founders → Bear Academy (content/link/cover swap, reused existing visual framework). `app/podcast/page.tsx`: title→Bear Academy, new hero desc (direction A, Claude-drafted), cover alt, top 3 show buttons (YouTube playlist `PL-RK8UwXSearlJdaf38IARoUhXeGWQoAL` / Spotify show `4OoASKWSTlsdb2nCQ8BaeQ` / Apple `id1536234805`), removed episode-level Spotify block, footer email `bear@beartalking.com`→`hi@bearliu.com` (14.2 leftover). `app/data/episodes.ts`: Luca→#53 (company Skarlo→**Scarlo**, per Apple), Felix→#54; per-episode Apple (`id1536234805?i=…`, fetched via iTunes lookup API) + RedCircle (new feed `886cd1db…`); dropped `spotifyUrl` field; YouTube/title/desc unchanged. Card label `EP0N`→`#N`. Cover replaced with Bear Academy box art. Verified: `npm run build` clean (`/podcast` static), grep 0 stale refs, Playwright snapshot 0 console errors. NOTE: local dev showed old cover (Next image cache, `.next/cache/images`) — source file confirmed correct, Vercel re-optimises on deploy. Full plan: `~/.claude/plans/design-founder-shimmying-grove.md`.
+- 14.5 (Obsidian sync script) — optional, later.
 - To re-port/add a teardown: `node scripts/port-teardown.mjs --report "<vault path>" --slug <slug> --date <YYYY-MM-DD> --tags "teardown,..."` then commit. Apple Health still excluded (incomplete).
 
 ## Context
@@ -585,9 +586,12 @@ Original plan notes below:
 ### Phase 14.5 — Obsidian → site sync script (OPTIONAL)
 - For the weekly cadence: a small script reads vault MD, maps/adds frontmatter, writes `.mdx` + copies any assets into `content/`. Build only after the manual format + component kit are proven.
 
-### Phase 14.6 — Bear Academy section (FINAL, OPTIONAL)
-- Take down "Design Founders" branding/content on `/podcast` (currently `app/podcast/page.tsx` + the design-founders Apple link).
-- Reuse its style/format to publish **Bear Academy** podcast content instead.
+### Phase 14.6 — Bear Academy section (✅ DONE in working tree 2026-06-07, pending commit + deploy)
+- Take down "Design Founders" branding/content on `/podcast` (currently `app/podcast/page.tsx` + the design-founders Apple link `id1885803621`); reuse the same style/format for **Bear Academy** (Apple `id1536234805`, 50+ eps = seasons 1–3, old visual). Luca + Felix migrate into the Bear Academy feed = first two of the refreshed S4 era; future guests (Lee Young 李耀, Xinran 欣然) = S4.
+- See RESUME HERE bullet + full plan `~/.claude/plans/design-founder-shimmying-grove.md` for exact edits, decisions, and gating inputs.
+- **Show description draft** (2 directions, awaiting Bear's pick → then /positioning + /writing polish; no em-dashes):
+  - A (tight): *Bear Academy is a series of candid conversations with founders, designers, and builders about the decisions behind what actually ships. Product bets, design craft, AI workflows, and the messy middle of turning an idea into something people use. Hosted by Bear Liu.*
+  - B (FDP, more specific): *Bear Academy goes inside the work of building products. Each episode is an honest conversation with a founder, designer, or operator about the calls that shaped what they shipped: where to place the first bet, what to cut, how AI changed the workflow, and what they would do differently. Hosted by Bear Liu.*
 
 ## Dependencies
 - 14.0 blocks Claude Design, which blocks 14.4 integration.

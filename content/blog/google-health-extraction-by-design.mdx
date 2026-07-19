@@ -1,0 +1,152 @@
+---
+title: "Google Health: Extraction by Design"
+slug: "google-health-extraction-by-design"
+date: "2026-07-20"
+product: "Google Health"
+teardownNumber: 6
+excerpt: "To most reviewers, Google Health looks like the old Fitbit app with a chatbot bolted on. The chatbot is not the point. It is the bait. A passive tracker can record what your body did; it cannot record what you want. The coach can."
+cover: "/blog/google-health-extraction-by-design/fig-0.webp"
+tags: ["teardown", "health", "ai"]
+---
+<ReportMeta author="Bear Liu, Fractional Product Designer" audience="founders and product leaders building AI features that have to earn trust while collecting the very data those features run on" method="two recorded naked-eye walkthroughs (an R1 exploration and an R2 synthesis, roughly 75 and 67 minutes), three weeks of daily use on a Fitbit Air, cross-referenced against Apple Health (the control group from teardown #5), Whoop, Fitbit's acquisition history, Google's own statements, public market data, and the design community's critique of the May 2026 relaunch" />
+
+<Figure src="/blog/google-health-extraction-by-design/fig-0.webp" width="2038" height="1164" alt="Fig 0. Three weeks on a Fitbit Air. The coach is not a chatbot bolted onto a tracker. It is the reason the tracker exists." caption="Fig 0. Three weeks on a Fitbit Air. The coach is not a chatbot bolted onto a tracker. It is the reason the tracker exists." priority="true" />
+
+---
+
+## Why Google Health
+
+This is the second health app in the series, and that is deliberate. Teardown #5 was Apple Health. Pairing it with Google Health gives the cleanest natural experiment in consumer software right now. Same job, same data, two companies whose business models point in opposite directions. **Apple Health was the control. Google Health is the variable.**
+
+One caveat before I build anything on top of this. The app I tore down [went live on 19 May 2026](https://9to5google.com/2026/05/07/google-health-app-fitbit/), less than a month before I recorded, as a forced over-the-air rename of the Fitbit app. It landed in the middle of a user revolt. Google had deleted badges, sleep animals and the whole social layer. Data was rendering wrong. A week in, the company shipped an emergency roadmap that Gizmodo headlined ["Google Is in Full-On Damage Control"](https://gizmodo.com/google-is-in-full-on-damage-control-over-its-new-health-app-2000764027). So some of what looks like deliberate design here is unfinished migration, rushed to hit a hardware date. Where I cannot tell strategy from haste, I say so. The thesis below is about the parts that are clearly strategy.
+
+The thesis itself is short. Google gives away a Gemini-grade health coach for one reason. A passive tracker like Apple Health can record what your body did. It cannot record what you want. The coach can. Every prompt, every tap-to-reply, every thumbs-up, every silent dismiss feeds Google the one dataset a tracker cannot collect: your intent. Apple asks you for nothing, because your trust is its product. Google asks you for everything, because your behaviour is. **The coach is the data pump.**
+
+What follows are four things I watched on screen across three weeks, an honest look at where the thesis could be wrong, and one rule that ties Google back to Apple. The verdict on Google matters less than what these questions find when you turn them on your own product, especially if it has an AI feature that only works once it has been fed.
+
+---
+
+## 1. The AI coach exists to be fed
+
+Open Google Health and the AI Coach starts talking within seconds. It surfaces a note about last night's sleep, asks how you feel about it, and offers a few pre-written replies to tap. I asked it what my resting heart rate means for me. It came back with a clean explanation, an external source, my own thirteen-day range (59 to 68) drawn as a chart I could scrub day by day, and a question: "Does that overview give you the peace of mind you're looking for?" I mentioned I am on heart medication. It folded that in and asked the next question. I switched to Chinese mid-conversation and it kept up.
+
+As conversational design, this is genuinely good. But ask the question one layer up. Why is this app, alone among health apps, so relentlessly chatty? **The answer is not on the screen. It is on the balance sheet.**
+
+I opened Apple Health right after, and the contrast was total. Apple Health asks you for almost nothing. Most of its data arrives on its own, written in the background by the Watch and other devices (my estimate was 80 to 90 per cent, flagged as an estimate). It is built to be filled passively and read now and then. Google Health is built to be answered. One app treats every screen as something to read. The other treats every screen as a chance to collect another signal.
+
+<Figure src="/blog/google-health-extraction-by-design/fig-1.webp" width="2118" height="1926" alt="Fig 1. Two postures, two business models. Apple Health asks for nothing. Google Health asks on every surface: a prompt, three tap-to-reply options, a free-text reply, a thumbs pair, a dismiss." caption="Fig 1. Two postures, two business models. Apple Health asks for nothing. Google Health asks on every surface: a prompt, three tap-to-reply options, a free-text reply, a thumbs pair, a dismiss. (The interface is in Chinese because I switched languages mid-conversation and the coach kept up.)" />
+
+**That is the revenue model showing through the interface, not taste**. Apple sells hardware. Your behaviour is not its product, so it has no reason to mine you and every reason not to. What it protects is your willingness to trust it with your health. **Google sells data. Your behaviour is the product.** So the design extracts behaviour at every turn, and the coach is the most efficient extraction tool Google has ever built. A chat interface manufactures exactly the data a tracker cannot. A step count tells Google what your body did. The coach tells Google what you wanted, what you feared, and whether its guess about you was right. That second dataset is worth far more, and a passive tracker cannot collect it. So Google built a reason for you to hand it over, and gave that reason away for free (well, for a three-month free trial).
+
+This is the first instrument, and I call it **the Revenue Tell: read the design decision back to the business model**. When a product is conspicuously generous (a free Gemini-grade coach) or conspicuously grabby (a prompt on every card), do not file it under design philosophy. Ask what the company sells. Apple's silence and Google's chatter answer one question two ways: whose product is this data? Google did not bolt the coach onto a tracker. The coach is the reason the tracker exists.
+
+---
+
+## 2. The instrumentation is loud, the design is quiet
+
+Once you see the app as an extraction engine, the next question is how it gets away with it. An app that visibly grabbed at you on every screen would be intolerable. The answer is a piece of craft worth naming.
+
+Count the capture points on a single Google Health screen. You will find four to six. A thumbs-up. A thumbs-down. A three-dot menu with "useful / not useful / dismiss". The pill-shaped reply options. The follow-up question itself. Every one is a data point. The thumbs train the model. The pills capture intent more cheaply than free text. The dismiss is the cleverest of all. Swipe a card away because it annoys you, and the annoyance is the signal. You have just told Google to show you less of this, and Google has recorded it. There is no neutral action here. **Even rejection is collection.**
+
+Now look at how it is dressed. The thumb icons are outlined, not filled. The menu is light grey. The prompts use soft colour and thin strokes. You can ignore all of it without friction. Apple Health has close to none of these on a comparable screen. So the achievement is a deliberate trade, not subtlety for its own sake. **Keep the capture dense enough to feed the model. Keep the visual weight low enough to stay under the user's annoyance threshold. High instrumentation, low volume**. That is hard, and Google does it well.
+
+It is also where the ethics sit. This is not a dark pattern in the classic sense. Nothing tricks you into a purchase or hides a cancel button. But it sits one notch from the line, and the notch is awareness. A user who knows that dismissing a card trains the model is being respected. A user who does not know is being harvested quietly. The design that makes the capture painless is the same design that makes it invisible, and invisibility is doing the work the privacy policy is supposed to do and cannot.
+
+I am adding this to my methodology library as **the Capture Count**. Three questions:
+
+- First, count the capture points per screen and compare them to a control product in the same category (Google Health four to six, Apple Health roughly zero).
+- Second, ask what the low visual weight is doing: serving the user's calm, or serving the collection?
+- Third, find the points where rejection is itself a signal (the dismiss, the snooze, the "not now") and ask whether the user could reasonably know that.
+
+The frontier, which Google has not crossed yet but any data company will, is capture with no affordance at all: reading intent from scroll depth and dwell time, where there is nothing to opt out of because there is nothing to see. If your product instruments behaviour, this audit tells you where you sit on the line from respectful to extractive, and whether your users can see the line you are standing on.
+
+---
+
+## 3. A platform built on borrowed ground
+
+Google's own pitch is [a platform that "doesn't just track but understands you"](https://blog.google/products-and-platforms/products/google-health/google-health-fitbit/), proactive, owning the whole arc from sensor to insight. Outside analysts read it the same way: Google is ["positioning itself to own the entire health data pipeline, from hardware sensors to AI-driven clinical summaries"](https://productleadersdayindia.org/news/2026/may/google-health-app-replaces-fitbit-ai.html). That is the strategy. The interesting part is what it stands on.
+
+I opened the Connections screen and read the data sources out loud. Two tabs, Devices and Apps & Services. Underneath sit three structurally different kinds of source. Data Google **captures** itself, from the Fitbit on my wrist. Data it **aggregates** from someone else, mainly Apple Health, which was connected and "synced just now". And data it would **import**, [the medical records integration](https://blog.google/products-and-platforms/products/google-health/connect-data-across-devices/). Those look like three rows in a list. They are three different ownership positions, and only the first is Google's own.
+
+<Figure src="/blog/google-health-extraction-by-design/fig-2.webp" width="2408" height="1780" alt="Fig 2. Three structurally different sources sitting in one tidy list. Fitbit is captured, Apple Health is aggregated, medical records are imported. Only the first is ground Google owns." caption="Fig 2. Three structurally different sources sitting in one tidy list. Fitbit is captured, Apple Health is aggregated, medical records are imported. Only the first is ground Google owns." />
+
+My weight reaches Google Health by a three-hop chain. A Withings scale captures it, Apple Health aggregates it, Google Health reads it from Apple Health. For that metric, the "platform that understands you" is third in line behind two systems it does not own.
+
+This is the load-bearing fact under the whole product. It is also why the [2.1-billion-dollar Fitbit acquisition](https://www.clearygottlieb.com/news-and-insights/news-listing/google-completes-2-1-billion-acquisition-of-fitbit) was never really about Fitbit's app. It was about the one layer a data company could not borrow: **capture**. Apple already owned the aggregation position. In teardown #5 I called it the retention layer of a hardware business, the neutral container 150-plus data types flow into. Google had no equivalent. It could read from Apple Health, but reading from your competitor's hub is a tenancy, not a foundation. Buying Fitbit bought Google [128 million registered users](https://xtendedview.com/fitbit-statistics/) and, more importantly, a sensor it controls end to end, so at least one stream of your data starts inside Google instead of arriving second-hand. The coach needs data to be any good. **The Fitbit deal is Google buying a faucet of its own, so the pump has something to pump**.
+
+<Figure src="/blog/google-health-extraction-by-design/fig-3.webp" width="2482" height="1744" alt="Fig 3. Your weight takes three hops to reach the platform that understands you. A Withings scale writes to Apple Health, Apple Health grants Google read access, and Google Health displays a number it never measured." caption="Fig 3. Your weight takes three hops to reach the platform that &quot;understands you&quot;. A Withings scale writes to Apple Health, Apple Health grants Google read access, and Google Health displays a number it never measured." />
+
+The transferable move is what I call **Follow the Data**, and it corrects how most teams draw their own data model. **When you map a data product, do not stop at the entities**. Entities lie by looking tidy. Draw the flow instead, and label every source by ownership: which data you capture, which you aggregate from a system you do not control, which you import on someone else's terms. Then ask the question that decides your exposure. If the system you aggregate from cut you off tomorrow, how much of your product still works? For Google Health, the honest answer for a lot of users is "less than it looks". A platform built on borrowed ground has to buy or build the ground under it, fast, or it is a service wearing a platform's clothes.
+
+---
+
+## 4. Before, during, after, and the layer everyone skips
+
+The chat box in Google Health is not new. As an interaction it is the same pattern every product has shipped since ChatGPT. Type a question, get an answer, ask another. If that were all, it would not be worth a section. What is worth it is the scaffolding around the chat box. That is where the real design work, and the real extraction, happens.
+
+Any AI conversation has three layers. They are easiest to see when you ask where each one lives in the product. The **before** layer is everything that happens before the user types: the system spotting something in your data, surfacing it as a personalised note, and offering pre-written ways to reply. Google Health is dense with this. The Fitness tab opens with a coaching prompt. The workout library has a "chat with Coach" entry. A sleep card carries a reply button and an opening line already written: "midnight bedtime is working well", then "does sticking to the schedule feel manageable as you head into the weekend?" The user never faces a blank prompt. The system always speaks first.
+
+<Figure src="/blog/google-health-extraction-by-design/fig-4.webp" width="2314" height="1291" alt="Fig 4. Before, during, after. The system speaks first and the chat runs well, but the after layer, the unprompted nudge that wins retention, is an empty box. Most products ship only the middle." caption="Fig 4. Before, during, after. The system speaks first and the chat runs well, but the after layer, the unprompted nudge that wins retention, is an empty box. Most products ship only the middle." />
+
+This is the real innovation, and it is also the extraction funnel. **The hardest problem in any conversational AI product is the blank box**. Users do not know what to ask, so they ask nothing, and the feature dies of disuse. Google's answer is to never show a blank box. It seeds the conversation with a personalised hook and drops the cost of replying to a single tap. From the user's side, this is helpful. It makes the coach feel alive and attentive. From Google's side, it is the cheapest possible way to manufacture a steady stream of intent. The same move does both jobs at once. That is why it is good design worth stealing, and why you should be clear-eyed about what it harvests while it delights.
+
+The **during** layer, the chat itself, is a commodity done competently: charts you can scrub, external sources, a follow-up question every time to keep you talking. The **after** layer is the one that matters most, and the one Google has not built. After three weeks of using it, there is no proactive nudge, no automatic weekly report, no unprompted "here is what I noticed this week". I checked for it specifically. It is not there.
+
+My read is the rushed launch. The after layer is the hardest to do safely, because one unsolicited, wrong piece of health advice is how you destroy trust, and Google ran out of runway before the hardware date. But the structural point holds beyond Google. **Before wins engagement. During is table stakes. After wins retention. And after is the layer many other AI products skip.**
+
+I call this **the Whole Conversation**, and it is the instrument I expect to use most, because nearly every AI feature I am asked to look at over-invests in the chat box and ships nothing on either side of it. The before layer is why people start. The after layer is why they come back. Google built a beautiful before and no after.
+
+---
+
+## Where this could be wrong
+
+A thesis is only worth the evidence that could break it. Three cracks matter, because they change how much you should trust my thesis.
+
+The first: the coach is genuinely good. My own use says so, and external testing says it harder than I expected. PCMag spent five weeks with it and called it ["the most effective automated health coach I've tried"](https://www.pcmag.com/news/the-results-dont-lie-googles-ai-is-the-best-automated-health-coach). If that holds, then "data company bolts on a chatbot" is too cynical. Maybe Google built a real service, and the data capture is the price, not the point. Here is the reconciliation. Both are true, and the test is the data asymmetry. A service you pay for with money ends at the point of sale. A service you pay for with continuous behaviour never ends, and **the better it is, the more you feed it**. A genuinely excellent coach is not evidence against the data-pump thesis. It is what makes the pump run faster.
+
+The second: the extraction may be constrained. Google states plainly that it does ["not use your health data for ads"](https://health.google/privacy/). In the EEA it operates under a [2020 merger condition](https://gizmodo.com/google-fitbit-merger-wins-eu-approval-with-a-few-condi-1845903231) that forces a [data-isolation wall for at least ten years](https://www.cnet.com/tech/mobile/googles-2-1-billion-fitbit-acquisition-wins-conditional-eu-approval/). Those are real limits, not PR. Google may be the first data company building a health product it is partly forbidden from fully exploiting. But the limits do not close the trust gap, and the reason is on screen. "We do not use it for ads" is a narrow promise. **It says nothing about training models, improving other Google products, or future policy**. And the interface argues against the privacy page in real time. A product that instruments every screen teaches the user, through behaviour, the opposite of what the policy says in text. A user who watches the app ask, rate and record on every surface will not be reassured by a sentence on a settings page. They are right not to be.
+
+The third: the most-cited user complaint is that the coach is ["sycophantic and overly verbose"](https://www.theverge.com/tech/938179/google-health-fitbit-roadmap) and buries the actual numbers under text, and there are [documented cases of it fabricating workouts that never happened](https://www.androidauthority.com/google-health-coach-hallucinations-3667257/). I felt the mild version: the focus messages on the Today tab repeat themselves, the same sentence reshaped against yesterday's data. The "calm" I praised in section 2 is calm to a designer with patience for density. To someone who just wants last night's sleep score without scrolling past a paragraph of AI prose, it reads as noise. If you ship something like this, that is the gap to watch. **The restraint you are proud of and the clutter your user feels can be the same screen**.
+
+One on-screen detail tightens the thesis rather than breaking it, and it is a useful instrument on its own. Google handles authority two ways, depending on who wrote the content. For its own static, non-AI content (the "about resting heart rate" explainer) it speaks in its own voice with no citation, carrying only a "not intended to diagnose or treat" disclaimer. But for anything the AI generates, it attaches explicit external sources, healthdirect, Healthline and the like, every time.
+
+That split is calculated. Google is pricing its own risk. It will stand behind content a human wrote and edited. It will not stand behind content the model generated, so it borrows someone else's authority as insurance against its own hallucinations. I call this **Hallucination Insurance**, and the rule generalises: **in any AI product, sourcing should track content provenance, with model-generated claims carrying the heaviest sourcing precisely because they are the least trustworthy**. A company confident in its AI would not source it this carefully. Google's own UI is quietly admitting where the trust gap sits.
+
+<Figure src="/blog/google-health-extraction-by-design/fig-5.webp" width="2828" height="1828" alt="Fig 5. Google's own explainer speaks in its own voice and carries no citation. Every AI-generated claim beside it hangs an external source off each paragraph. It borrows credit exactly where it trusts itself least." caption="Fig 5. Google's own explainer speaks in its own voice and carries no citation. Every AI-generated claim beside it hangs an external source off each paragraph. It borrows credit exactly where it trusts itself least." />
+
+So the thesis survives, sharper than it started. The coach is the data pump, it is a good pump, and the better it gets the more it pumps. The legal limits are real but narrower than the trust gap they are meant to close. And the interface keeps making the case against the reassurance the company is trying to offer, on every instrumented card and every carefully sourced AI answer. No privacy sentence can out-argue a thumbs-up button.
+
+---
+
+## When to copy this, and when copying it kills you
+
+"Add an AI coach, instrument everything, personalise relentlessly" is the most fashionable product advice of 2026. For most companies it is advice that quietly bankrupts the trust they cannot afford to lose.
+
+Google can instrument every screen for one reason that has nothing to do with the app. **It has somewhere to put the data and a business that turns it into money**. The behavioural exhaust feeds models across Google's entire surface, and the cost of collecting it is paid back far from the health app. Strip that engine away and the same design is a liability. A standalone health or fitness startup that copies Google's instrumentation, a thumbs and a prompt and a dismiss on every card, with no data-monetisation layer underneath, does not get Google's payoff. It just gets the trust cost. Users feel surveilled by an app that has no visible reason to be watching them. That is worse than Google's position, because users assume Google is a data company and price it in. A small brand has no such allowance. So the rule is conditional, and the condition is the whole rule. **Aggressive instrumentation is a strategy you can only afford on top of a data-monetisation engine that the instrumentation feeds.** Google can be loud because it has somewhere loud to sell. If you do not, your instrumentation is all cost and no return.
+
+For the comparison, Apple can be calm because the Watch is loud. Infrastructure-grade restraint is affordable only on top of a hardware-monetisation layer the restraint protects. Google can be loud because the data is sold elsewhere. Two opposite interfaces, each correct, each affordable only because of a money engine one layer down that the user never sees. **Before you copy either company's posture, find your engine**. If you cannot name it, you cannot afford the posture.
+
+<Figure src="/blog/google-health-extraction-by-design/fig-6.webp" width="2920" height="1814" alt="Fig 6. Two interfaces, two engines. Apple's calm is paid for by the Watch it sells you. Google's chatter is paid for by the data business behind it, where the band is only the intake." caption="Fig 6. Two interfaces, two engines. Apple's calm is paid for by the Watch it sells you. Google's chatter is paid for by the data business behind it, where the band is only the intake. Copy either interface without its engine and the interface becomes the bill." />
+
+If you are building an AI-coaching product in health or fitness, this teardown leaves three tools. The **Whole Conversation**: check your feature for a before layer (do you ever show a blank prompt, and why) and an after layer (do you ever speak first, unprompted, with something useful), because that is where engagement and retention are won and almost everyone ships the middle. The **Capture Count**: count your capture points, check whether users can see the ones where rejection is a signal, and decide on purpose where you sit on the line from respectful to extractive. **Follow the Data**: know which data you own and which you borrow, because a coach built on a competitor's hub is a coach your competitor can switch off.
+
+---
+
+## What this means if you are the one shipping
+
+Strip Google away and a few questions remain that do not care which product you run.
+
+- Take your most conspicuous design choice, the free feature or the relentless prompt, and read it back to your revenue model. Is the interface telling the truth about whose product the data is?
+- Count the capture points on your busiest screen. How many are there? Can a normal user tell which ones turn their rejection into a signal? Did you choose that number on purpose?
+- Draw your data flow, not your data entities. Which sources do you own, which do you borrow, and how much of your product survives if a borrowed source cuts you off?
+- Your AI feature: does it have a before layer that kills the blank prompt, and an after layer that ever speaks first? Or have you shipped only the chat box in the middle?
+- Where your model generates a claim, does your sourcing get heavier than where a human wrote one? It should.
+- Your privacy promise and your interface: are they making the same argument, or is every instrumented card quietly contradicting the sentence on your settings page?
+
+The deepest thing Google Health taught me is that **the same design move can be excellent craft and quiet extraction at the same instant**, and the better the craft, the more effective the extraction. The before layer that makes the coach feel alive is the same before layer that manufactures intent. You cannot fix the extraction by improving the design, because the good design is the extraction. The only honest lever is to decide, on purpose, whose product the data is, and then make the interface tell the user the truth about that.
+
+---
+
+If any of those questions landed without a clean answer, that gap is worth a closer look.
+
+I write diagnoses like this one for other products: where your design is quietly serving a goal your users cannot see, what that is costing you in trust, and what to change first. If you would like one for yours, email me at hi@bearliu.com.

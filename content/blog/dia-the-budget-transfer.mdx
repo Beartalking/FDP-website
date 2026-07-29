@@ -1,147 +1,372 @@
 ---
-title: "Dia: The Budget Transfer"
+title: "Arc Never Broke Through. Why Did Dia Sell for $610M Three Months After Launch?"
 slug: "dia-the-budget-transfer"
 date: "2026-06-03"
 product: "Dia"
 teardownNumber: 3
-excerpt: "Dia is the same team's second draft of the same idea. It did not get smarter. It got more familiar. The reduction from eight invented concepts to three borrowed ones was not simplification. It was a budget transfer, and the budget moved to AI."
+excerpt: "Arc never crossed 0.1 per cent browser share, yet the same team's next browser sold for $610M three months after launch. What Dia carried over from Arc, and what it left on the kerb, explains more than any post-mortem."
 cover: "/blog/dia-the-budget-transfer/01.webp"
 tags: ["teardown", "browser"]
 ---
 <ReportMeta author="Bear Liu, Fractional Product Designer" audience="design leaders and founders deciding what to fix when a product is loved by a few and ignored by everyone else" method="two recorded naked-eye walkthroughs, cross-referenced against Arc the predecessor, the founder's own farewell letter, public data, and competitor research" />
+If the same team had the chance to rebuild a product that failed to break through, what would they remove, what would they keep, and where would they invest the attention they saved?
 
-<Figure src="/blog/dia-the-budget-transfer/01.webp" width="1600" height="1031" alt="Fig 0. Dia's landing hero. A serif “a browser for your best work”, with tiles for a morning brief, a meeting countdown, and a Notion-style planning panel. Every signal in the first five seconds is addressed to a knowledge worker." caption="Fig 0. Dia's landing hero. A serif “a browser for your best work”, with tiles for a morning brief, a meeting countdown, and a Notion-style planning panel. Every signal in the first five seconds is addressed to a knowledge worker." priority="true" />
-## Why I tore down the sequel instead of the original
+Arc and Dia give us a rare chance to see the answer. Arc attracted enormous attention and built a loyal following, but it never reached the mainstream. Dia was created by the same people, and three months after it launched, the company was acquired for $610 million.
 
-Most teardowns examine one product. This one only works because there are two.
+The interesting part is not simply that the second product produced a better business outcome. It is what the team changed when they were given a second attempt.
 
-The Browser Company built Arc, raised roughly $128M, reached under 0.1 per cent global browser share, and put it into maintenance mode in May 2025. The same CEO and the same core team then built Dia, shipped it in June 2025, and were acquired by Atlassian for $610M that September. Three months from launch to exit. Two browsers, one set of hands, eleven years apart at the bookends.
+<Figure src="/blog/dia-the-budget-transfer/01.webp" width="1600" height="1031" alt="Dia's homepage. A morning brief, a meeting schedule and a Notion-style planning panel all point to the same audience: people who spend their working day handling information." caption="Dia's homepage. A morning brief, a meeting schedule and a Notion-style planning panel all point to the same audience: people who spend their working day handling information." priority="true" />
 
-There is a detail in Josh Miller's farewell letter that frames everything. He quotes Scott Forstall, the former Apple SVP who shipped the iPhone, on what was wrong with Arc. "Arc felt like a saxophone. Powerful but hard to learn. Then he challenged us: make it a piano. Something anyone can sit down at and play." Arc was the saxophone. Dia is the team trying to build the piano.
+## Why the second attempt tells us more
 
-<Figure src="/blog/dia-the-budget-transfer/02.webp" width="1600" height="339" alt="Fig 1. Forstall's note, drawn out. Arc was the saxophone, powerful but hard to learn. Dia is the same team trying to build the piano, something anyone can sit down at and play." caption="Fig 1. Forstall's note, drawn out. Arc was the saxophone, powerful but hard to learn. Dia is the same team trying to build the piano, something anyone can sit down at and play." />
+The Browser Company built Arc first.
 
-That makes Dia rare. It is a **public, funded, fully-shipped correction of a specific set of mistakes, made by the people who made the mistakes and now hold the data that proves it**. When the same team rebuilds with the post-mortem in hand, you do not have to theorise about cause and effect. You can read the corrections directly off the second product.
+Arc raised around $128 million and gathered a genuinely devoted user base, but its share of the global browser market never rose above 0.1 per cent. In May 2025, the team put Arc into maintenance mode and stopped directing its main development resources towards it.
 
-So this is the companion to my Arc teardown. Arc was the autopsy. Dia is the recovery. The Arc report surfaced two core frameworks, the Fit Audit and the Moving List. This report puts both through their second case and adds two more that only show up when you watch a team spend a freed budget. What follows is five lenses. Each one starts from something I saw inside Dia and turns into a question you can point at your own product.
+A month later, Dia launched. By September 2025, Atlassian had acquired The Browser Company for $610 million.
 
-<Figure src="/blog/dia-the-budget-transfer/03.webp" width="1600" height="236" alt="Fig 2. Eleven years on one line. Branch sold to Facebook for $15M in 2014, Arc shipped in 2023 on roughly $128M raised and under 0.1 per cent share, Dia shipped in June 2025 and sold to Atlassian for $610M three months later." caption="Fig 2. Eleven years on one line. Branch sold to Facebook for $15M in 2014, Arc shipped in 2023 on roughly $128M raised and under 0.1 per cent share, Dia shipped in June 2025 and sold to Atlassian for $610M three months later." />
+There were only three months between Dia's launch and the acquisition. Two browsers came from the same company and the same core team, yet the outcomes were completely different.
 
----
+<Figure src="/blog/dia-the-budget-transfer/03.webp" width="1600" height="236" alt="Eleven years on one line. Branch sold to Facebook for $15 million in 2014. Arc launched in 2023 after roughly $128 million in funding. Dia launched in June 2025, and three months later the company sold to Atlassian for $610 million." caption="Eleven years on one line. Branch sold to Facebook for $15 million in 2014. Arc launched in 2023 after roughly $128 million in funding. Dia launched in June 2025, and three months later the company sold to Atlassian for $610 million." />
 
-## Lens 1: The Fit Audit, run on the corrected case
+Josh Miller, the founder of The Browser Company, later shared an observation from former Apple executive Scott Forstall in his farewell to Arc:
 
-Open Dia's landing page and read the register before the words. Serif headlines. Clean layout. Demos showing a morning brief, meeting schedules, a Notion planning page, cross-tab reports. The whole surface says one thing in the first five seconds: this is built for modern knowledge workers.
+Arc felt like a saxophone. It was powerful, but difficult to learn. The team needed to build a piano, something almost anyone could sit down and play.
 
-Now compare it to Arc. Arc's register was warm, artistic, vintage, soft animation, rounded corners. It sat in the visual family of Notion, Substack, and Linktree. It invited a consumer decorating a digital life. Arc's actual users were engineers, designers, and PMs. I put the mismatch at roughly 90 per cent. Most people who downloaded Arc met a visual signal in the first five seconds that whispered "this is for someone else", and that signal fired before a single feature was evaluated.
+The comparison fits.
 
-This is the **Fit Audit**. **Your visual language is an invitation addressed to a specific kind of person**. The only question that matters is whether that person is your actual customer. Arc was the misaligned case. Dia is the aligned one. The visual register now points at knowledge workers, and knowledge workers are the actual ICP. My rough estimate is that the mismatch dropped from around 90 per cent to 30 per cent or below.
+Arc contained a large number of inventive features and interactions, and most of them asked the user to learn something unfamiliar. Each concept made sense on its own. When they appeared together, the user had to learn an entirely new product language before they could understand why the browser was useful.
 
-The business impact sits at the very top of the funnel, which is why it compounds. Visual alignment governs first-impression-to-trial conversion, the step before anyone has read a word of copy or tried a feature. Arc's 90 per cent mismatch meant most downloads churned before Day 1 closed, not because the product was weak, but because the invitation was addressed to the wrong person. Dia's visual pivot alone likely lifted first-impression-to-trial conversion by two to three times. When you are a free product fighting for attention, a multiplier that early cascades through everything downstream.
-<Figure src="/blog/dia-the-budget-transfer/04.webp" width="1600" height="921" alt="Fig 3. The aligned half of the hero. A Notion document, a meeting countdown, a morning brief. The register points straight at the knowledge worker, the actual ICP." caption="Fig 3. The aligned half of the hero. A Notion document, a meeting countdown, a morning brief. The register points straight at the knowledge worker, the actual ICP." />
-<Figure src="/blog/dia-the-budget-transfer/05.webp" width="1600" height="915" alt="Fig 4. The residual hedge on the same hero. A Spotify tile and a picture-in-picture video, consumer signals that Atlassian's own “SaaS apps for knowledge workers” positioning does not cover. Mostly aligned, with a note in the margin." caption="Fig 4. The residual hedge on the same hero. A Spotify tile and a picture-in-picture video, consumer signals that Atlassian's own “SaaS apps for knowledge workers” positioning does not cover. Mostly aligned, with a note in the margin." />
+Dia took a more practical direction. It kept the parts of Arc that had proved valuable, then placed them back inside a browser model that people already understood.
 
-There is one honesty problem worth naming, because the audit should catch it. Dia's hero is not perfectly clean. It carries consumer signals too, YouTube and Spotify playlists, sitting next to the Notion and meeting tiles. Atlassian's stated positioning is narrow: "the browser optimised for the SaaS apps where knowledge workers spend their day." A Spotify playlist does not belong in that sentence. So Dia is mostly aligned, with a residual hedge. The Fit Audit does not give it a clean pass. It gives it a far better grade than Arc and a note in the margin.
+<Figure src="/blog/dia-the-budget-transfer/02.webp" width="1600" height="339" alt="Arc was the saxophone: powerful, expressive and difficult to learn. Dia is the same team trying to build a piano that more people can sit down and use." caption="Arc was the saxophone: powerful, expressive and difficult to learn. Dia is the same team trying to build a piano that more people can sit down and use." />
 
-The question I carry from this: **your visual language is inviting a specific person right now, on autopilot, whether you designed it to or not**. Is that person your actual customer? If not, you change the visual or you change the customer. You do not get to ignore the gap, because your customer already read it.
+That is what makes Dia an unusually useful product to study.
 
-<Figure src="/blog/dia-the-budget-transfer/06.webp" width="1600" height="427" alt="Fig 5. The conversion stakes. Arc's roughly 90 per cent visual mismatch churned most downloads before Day 1; Dia's drop to 30 per cent or below points the invitation at the real ICP, an estimated two to three times lift in first-impression-to-trial." caption="Fig 5. The conversion stakes. Arc's roughly 90 per cent visual mismatch churned most downloads before Day 1; Dia's drop to 30 per cent or below points the invitation at the real ICP, an estimated two to three times lift in first-impression-to-trial." />
+We do not have to rely entirely on speculation about which decisions in Arc went wrong, because the same team answered many of those questions through the product they built next. What survived, what disappeared, what was renamed and what returned later all give us a clearer picture of where the product's real value was.
 
----
+If the Arc teardown was an examination of what went wrong, Dia shows what the team chose to do differently once it had the evidence.
 
-## Lens 2: The Cognitive Budget Audit, where the real correction lives
+## The first correction: helping the right users recognise themselves
 
-Arc asked a new user to hold eight core entities: Profile, Space, Folder, Easel, Boost, Tab, Command Bar, and Pinned. Tab and Pinned carried over from Chrome at near-zero cost. The other six were invented from scratch. A Space is not a thing anyone had held before, at least not coming from a browser. (Someone who already uses Spaces at the OS level may know the idea.) Neither is an Easel inside a browser.
+When someone encounters a product for the first time, they usually have not started reading the copy or examining the feature list.
 
-Here is the model I use. A new user walks in with a finite onboarding attention budget, roughly 90 minutes across the first week. Every invented concept costs around ten minutes to explain and try. Six invented entities spend roughly an hour. Arc burned that hour before the user reached the things that made Arc different. The budget was gone before the value showed up.
+What reaches them first is the typeface, the colour, the imagery, the layout and the overall mood. Within a few seconds, those signals begin to answer a simple question:
 
-The data confirms the reading, and Miller published it himself. In the farewell letter he disclosed the numbers that diagnosed Arc. Only 5.52 per cent of daily users ever used multiple Spaces. Only 4.17 per cent used Live Folders. Only 0.4 per cent used Calendar Preview on hover. Miller called this the "novelty tax". My framing is more upstream. Spaces was not badly designed. The budget that should have paid for learning Spaces had already been spent on Profile, Folder, Easel, and Boost.
+Does this look like it is meant for me?
 
-Dia cut to three entities: **Profile, Tab, Group**. Plus Split View as a view mode and AI Report as a generated artifact. The reduction matters, but the substitution matters more, and it runs on two levers at once.
+Arc's website was beautiful. It had a warm, slightly retro and artistic quality that placed it somewhere near Notion, Substack and Linktree. That visual style appealed to people who enjoyed experimenting with new tools and shaping their digital environment.
 
-<Figure src="/blog/dia-the-budget-transfer/07.webp" width="1600" height="947" alt="Fig 6. The entity reduction. Arc's eight entities, six of them invented, cut to three Dia borrowed wholesale from Chrome. Fewer concepts, and borrowed instead of invented." caption="Fig 6. The entity reduction. Arc's eight entities, six of them invented, cut to three Dia borrowed wholesale from Chrome. Fewer concepts, and borrowed instead of invented." />
+<Figure src="/blog/arc-the-moving-list/01.webp" width="1600" height="987" alt="Arc's interface was warm, rounded and highly expressive. It appealed to a particular aesthetic preference, which did not always match the needs of its most committed users." caption="Arc's interface was warm, rounded and highly expressive. It appealed to a particular aesthetic preference, which did not always match the needs of its most committed users." />
 
-The first lever is quantity. **Fewer entities, less total load**. The second lever is type. Dia's Profile maps directly onto Chrome's account model, so it costs almost nothing to learn. Arc's Profile was a reinvented container that cost real budget. Same word, very different cost. Dia pulled both levers together. There is a third move underneath, easy to miss. Arc forced you to learn Folder upfront, because the sidebar put every entity in front of you on day one. Dia's Group appears only when you drag two tabs together, and AI names it for you. Learning moved from upfront to on-demand. Deferring a concept to the moment of need is cheaper than deleting it.
+Arc's most devoted users, however, were largely engineers, designers and product managers. Their daily concerns were more practical: managing tabs, moving between projects, keeping workspaces organised and processing large amounts of information.
 
-The instinct when you hear "too many concepts" is to cut features. Cutting carries the highest downstream cost, so it should be last. First, **swap invented concepts for isomorphic ones**. Second, **defer upfront learning to on-demand**. Do those two and the demand to cut the count usually disappears on its own.
+There was a clear gap between the way Arc presented itself and the people who found the most value in using it.
 
-That is the **Cognitive Budget Audit**. List every concept a first-time user must hold to reach value. Mark each as invented or isomorphic, upfront or on-demand. Add up the budget. If it exceeds the ceiling, the gap is your D7 retention loss. Arc sat at the ceiling with eight invented entities. Dia sits at three isomorphic ones, which left four to five budget slots free. That freed budget is the whole story, because of where it went next.
+Many people could look at Arc, appreciate its design and still struggle to understand what problem it would solve for them. Before they had even tried the product, the visual presentation had already delivered an invitation that was slightly too vague.
 
-<Figure src="/blog/dia-the-budget-transfer/08.webp" width="1600" height="797" alt="Fig 7. The budget transfer in one frame. Arc's six invented concepts spent roughly an hour of onboarding budget before any value arrived; Dia's three isomorphic ones cost almost nothing and free four to five slots, and that budget flows to AI." caption="Fig 7. The budget transfer in one frame. Arc's six invented concepts spent roughly an hour of onboarding budget before any value arrived; Dia's three isomorphic ones cost almost nothing and free four to five slots, and that budget flows to AI." />
+<Figure src="/blog/dia-the-budget-transfer/06.webp" width="1600" height="427" alt="That mismatch had a cost. Many people downloaded Arc and left before reaching the parts of the product that made it valuable. Dia lowered that initial barrier." caption="That mismatch had a cost. Many people downloaded Arc and left before reaching the parts of the product that made it valuable. Dia lowered that initial barrier." />
 
----
+Dia corrected this directly.
 
-## Lens 3: Where the freed budget went, the AI entry points
+Its website presents a morning work brief, a meeting countdown, document planning and page summaries. The typography, layout and demonstration scenarios are more restrained, and they resemble the tools knowledge workers already use every day.
 
-Most products bolt AI on as one chat sidebar. One surface, one mode, one friction level. Dia spread it across four core ones, each calibrated to a different friction-and-value profile. This is the answer to the question Lens 2 leaves open. Dia did not free four budget slots in order to feel lighter. It freed them so it could spend them on AI without overloading the user.
+A few seconds of scrolling leaves a relatively clear impression: this is a browser for work.
 
-1. **The Command Bar** carries the bulk of it, my estimate is 60 to 70 per cent of AI usage. It is the lowest-friction surface because it inherits the URL bar's muscle memory. You type a question instead of an address. No mode switch. 
-2. **The Side Chat** covers maybe 15 to 25 per cent: medium friction, invoked on purpose, useful for sustained conversation about a page you are reading. 
-3. **The Multi-tab AI Report** sits at 5 to 10 per cent: highest friction, highest value. You select three or four tabs and ask Dia to find the pattern across them, and it generates a structured report. 
-4. **The Proactive Alert** runs at 0 to 5 per cent, system-initiated, low trust at this stage. The tab cleanup suggestion lives here. I watched Dia tell me 28 tabs had gone untouched. My instinct was to dismiss it, and I think most users dismiss it too.
+<Figure src="/blog/dia-the-budget-transfer/04.webp" width="1600" height="921" alt="A Notion document, a meeting countdown and a morning brief all point towards the same group: people who spend their working day in front of a screen handling information." caption="A Notion document, a meeting countdown and a morning brief all point towards the same group: people who spend their working day in front of a screen handling information." />
 
-<Figure src="/blog/dia-the-budget-transfer/09.webp" width="1600" height="634" alt="Fig 8. The four AI entry points, each calibrated to a different friction-and-value profile. Command Bar 60 to 70 per cent, Side Chat 15 to 25, Multi-tab AI Report 5 to 10, Proactive Alert 0 to 5. The distribution itself is the design decision." caption="Fig 8. The four AI entry points, each calibrated to a different friction-and-value profile. Command Bar 60 to 70 per cent, Side Chat 15 to 25, Multi-tab AI Report 5 to 10, Proactive Alert 0 to 5. The distribution itself is the design decision." />
+I call this the Fit Audit.
 
-<Figure src="/blog/dia-the-budget-transfer/10.webp" width="1600" height="364" alt="Fig 9. Three of the four surfaces in the wild. Left, the Command Bar inheriting the URL bar's muscle memory. Centre, the Side Chat reading the current page. Right, the Multi-tab AI Report generated across tabs. One dominant entry point with a supporting cast, not four equal ones." caption="Fig 9. Three of the four surfaces in the wild. Left, the Command Bar inheriting the URL bar's muscle memory. Centre, the Side Chat reading the current page. Right, the Multi-tab AI Report generated across tabs. One dominant entry point with a supporting cast, not four equal ones." />
+It looks beyond whether an interface is attractive and asks which kind of person the visual language is inviting. Every visual direction draws some people closer while quietly telling others that the product may not be for them, and this judgement often happens before the first sentence has been read.
 
-The design insight is the distribution itself. LLM-era tools need one dominant entry point plus a supporting cast. That is not a Dia quirk. Cursor, Linear and Dia all have multiple AI entry points. The pattern holds across the category: find the dominant surface, invest there first, let the rest play supporting roles. If you are building AI features, naming your dominant entry point and putting most of your AI infrastructure behind it is the single decision that returns the most. Spreading the budget evenly across four surfaces is how you ship four mediocre ones.
+**Visual style is never only packaging. It is also the first filter a product applies to its potential users.**
 
-I want to coin the name here, because this is the genuinely new framework Dia surfaces and the Arc teardown did not have it. Call it the **Freed-Budget Audit**. It is the back half of the **Cognitive Budget Audit**, and it only applies to products that have already done the reduction. The audit is two questions. First, when you cut cognitive load, where did the saved budget go? Second, was it reallocated to your actual differentiator, or did it just evaporate into a cleaner-feeling product? Arc could not run this audit, because it never had a free budget to spend. Dia is the case that shows the saved budget has a destination, and the destination is the thing you actually want users to adopt.
+Dia has not resolved this perfectly.
 
-There is a verification trap worth flagging on this lens. The relative weights I gave the four surfaces are estimates. If Dia's internal data shows a different dominant entry point, I am wrong, and that is the point. A claim about which surface dominates is falsifiable, which makes it more useful than "the AI is nice". Miller's own letter says chat-with-tabs hit 40 per cent of DAU and personalisation hit 37 per cent. Those are the only adoption numbers Dia has published, and they are high enough to suggest the freed budget did land on AI rather than evaporate.
+Its homepage still includes Spotify and picture-in-picture video, which sit closer to consumer browsing. At the same time, Atlassian describes Dia much more narrowly as a browser for knowledge workers moving between SaaS applications.
 
----
+There is still some hesitation in the positioning. Dia wants to serve professional users without closing the door on a broader consumer audience.
 
-## Lens 4: The Moving List, run with Dia as the successor
+It is much clearer than Arc, although the product has not fully committed to one side.
 
-In the Arc teardown the Moving List ran with Arc as the corpse and Dia as the mover. Same frame, viewed from inside the new house this time.
+<Figure src="/blog/dia-the-budget-transfer/05.webp" width="1600" height="915" alt="The Spotify tile and picture-in-picture video preserve a few consumer signals, leaving Dia's positioning slightly unsettled." caption="The Spotify tile and picture-in-picture video preserve a few consumer signals, leaving Dia's positioning slightly unsettled." />
 
-When a team kills v1 and builds v2 from scratch, they pack some primitives and leave the rest on the kerb. What they carry is the truest inventory of what was ever doing real work, free of the narrative everyone tells after the fact. They have every incentive to be honest, because they only get one rebuild and they are spending real money on it.
+## Arc asked users to learn too much, too soon
 
-Dia carried the Command Bar, Split View, the sidebar paradigm, and the tab lifecycle. Dia left Spaces (5.52 per cent multi-Space usage), Folder, Easel, Boost, and the half-finished AI primitives like Tidy Tabs and Call Arc. Read the carried list as a verdict on what mattered. The Command Bar in particular was not a nicer address bar. It was the unified surface for capturing intent, the one primitive that justified a large share of the $610M, and Dia kept it and made it the dominant AI entry point. The keystone primitive survived two products.
+Arc's deeper problem can be found in the number of concepts it expected a new user to understand.
 
-<Figure src="/blog/dia-the-budget-transfer/11.webp" width="1600" height="520" alt="Fig 10. The Moving List. Carried: Command Bar, Split View, the sidebar paradigm, the tab lifecycle. Left on the kerb: Spaces, Folder, Easel, Boost, Tidy Tabs, Call Arc. Carried back six months later: the sidebar mode and Arc's “greatest hits”, minus its look and personality." caption="Fig 10. The Moving List. Carried: Command Bar, Split View, the sidebar paradigm, the tab lifecycle. Left on the kerb: Spaces, Folder, Easel, Boost, Tidy Tabs, Call Arc. Carried back six months later: the sidebar mode and Arc's “greatest hits”, minus its look and personality." />
+Someone starting with Arc encountered Profile, Space, Folder, Easel, Boost, Tab, Command Bar and Pinned Tab.
 
-For product design this becomes one question, because the question forces a trade-off the polite version never does. If you started fresh today, which 50 per cent of your features would you keep? "What isn't working" earns a shrug and a defence. "Pick half and justify the cut" produces an honest map of where the value actually sits. Dia is that map, drawn by the team that had the data.
+Tabs and pinned tabs were familiar browser concepts and required almost no explanation. Most of the others were created by Arc, and each came with a logic that differed from a conventional browser.
 
-One complication keeps the framework honest, and it is recent. Six months after launch, The Browser Company started backfilling Arc's "greatest hits" into Dia, the sidebar mode first. So the kerb was not final. Some of what got left behind is being carried back in, quietly, without Arc's visual language or personality. That said, this does not break the Moving List. It refines it. The first pass tells you what the team believed was core under pressure. The backfill tells you what users missed badly enough to force a reversal. Both lists are signal. The gap between them is where the team's first diagnosis was too aggressive.
+Consider Space. What exactly was it?
 
----
+It behaved partly like a browser window and partly like a workspace, without mapping neatly onto anything the user already knew. Easel was a canvas inside the browser. Boost changed the appearance of a webpage. Profile represented more than the account switching found in other browsers.
 
-## Lens 5: The number that reads both ways, and the PMF that never finished
+Each idea had a reason to exist. Presented together, however, they stopped feeling like a handful of new features and began to feel like an entirely new product language.
 
-Everything above reads as a success story. Dia fixed the invitation, freed the budget, spread the AI, kept the keystone. The $610M acquisition validates the whole package. 
+The amount of attention anyone is willing to spend learning a new product is limited. Every invented concept therefore has to justify the attention it consumes.
 
-Well, that is just one side of the story.
+Suppose a new user is willing to spend around 90 minutes during the first week learning how a product works. Every genuinely unfamiliar concept requires reading, experimenting, making mistakes and gradually forming a habit.
 
-Start with the same number that closed the Arc teardown. Arc's differentiator usage read 5 to 12 per cent. Under a free, mass-market model, that is a killer stat and pivoting is correct. Under a paid, power-user-only model, the same number is cohort-fit evidence and you should charge those believers and build deeper. Same data, opposite conclusion, the only variable being the implicit business model. Dia chose to read it as failure and rebuilt for the mass market. That was a choice, not a fact, and it is worth holding in mind while we judge the result.
+If six invented concepts each consume ten minutes, an hour disappears quickly. By the time the user reaches the features that make Arc meaningfully different, they may have little patience left to explore them.
 
-Now the structural problem Dia carries. It launched in June 2025 and was acquired in September 2025. Open-market PMF validation usually takes 18 to 36 months of independent operation. Dia never completed that cycle. Post-acquisition growth runs through Atlassian's captive distribution, not the open market. The current TAM is capped at Apple Silicon Mac users, roughly 15 to 25 million knowledge workers, until Windows, Intel Mac, and Linux ship.
+**One of the most dangerous moments for a product is when the user's attention has already been spent on learning, while the value has yet to appear.**
 
-This is where the pattern matters. Miller sold Branch to Facebook for $15M in 2014. Eleven years later he sold Arc's successor to Atlassian for $610M. Both times the product was a beautifully made, small-audience tool acquired by a large platform before it reached mass scale on its own. So the uncomfortable read is available. **Dia might be The Browser Company finding product-market fit**. It might be Miller's second execution of a taste-over-scale exit. Continuity over revolution, entity reduction, four AI entry points, these might be genuine product mechanisms, or they might be highly polished demo material for Atlassian's board. The open-market data that would tell the two apart does not exist, because the acquisition happened before it could accumulate.
+The numbers Arc later published support this interpretation.
 
-<Figure src="/blog/dia-the-budget-transfer/12.webp" width="1600" height="240" alt="Fig 11. The same pattern, eleven years apart. Branch to Facebook for $15M in 2014, Arc's successor to Atlassian for $610M in 2025. Both times a beautifully made, small-audience tool acquired by a large platform before it reached mass scale on its own, an order of magnitude larger the second time." caption="Fig 11. The same pattern, eleven years apart. Branch to Facebook for $15M in 2014, Arc's successor to Atlassian for $610M in 2025. Both times a beautifully made, small-audience tool acquired by a large platform before it reached mass scale on its own, an order of magnitude larger the second time." />
+Only 5.52 per cent of daily active users had used multiple Spaces. Live Folders reached 4.17 per cent, while the calendar hover preview reached only 0.4 per cent.
 
-I think Dia got most of the product decisions right. I cannot prove it, and neither can anyone outside Atlassian. Naming that ambiguity is the most honest thing I can put in this report. The frameworks above hold regardless of which read is true. They describe what Dia did. Whether what Dia did was building or packaging is the one question the data has not yet answered.
+<Figure src="/blog/arc-the-moving-list/05.webp" width="1600" height="211" alt="Adoption of several signature Arc features. Multiple Spaces reached 5.52 per cent of daily active users, Live Folders 4.17 per cent and calendar hover preview 0.4 per cent." caption="Adoption of several signature Arc features. Multiple Spaces reached 5.52 per cent of daily active users, Live Folders 4.17 per cent and calendar hover preview 0.4 per cent." />
 
----
+Josh Miller called this the novelty tax.
 
-## What this means if you are the one shipping
+Looking further upstream, Space may not have been badly designed. A more likely explanation is that Profile, Folder, Easel and Boost had already consumed too much attention before users reached it.
 
-Strip Dia away and you are left with a handful of questions that do not care which product you run.
+Dia's response was direct.
 
-- Is your visual language inviting your actual customer, or someone adjacent who will never convert?
-- How many concepts must a first-time user hold before they reach value, and how many of those are invented rather than borrowed?
-- When you cut that load, where did the freed budget go, and did it land on your real differentiator or just evaporate?
-- If you rebuilt from scratch tomorrow, which half would survive, and which discarded half would users force you to carry back?
-- The metric you are about to act on, does it read differently under a different business model than the one you assumed?
+It reduced the core concepts to three: Profile, Tab and Group. It also retained Split View and introduced the AI-generated Report.
 
-Arc taught me the Fit Audit and the Moving List. Dia confirmed both on a second case and taught me a third: the Cognitive Budget Audit splits into a reduction half and a Freed-Budget half, and the saved budget is only worth saving if it has somewhere to go.
+<Figure src="/blog/dia-the-budget-transfer/07.webp" width="1600" height="947" alt="Arc's eight core concepts were reduced to three in Dia. The lower number matters, but so does the fact that most of Dia's concepts come from browsers people already understand." caption="Arc's eight core concepts were reduced to three in Dia. The lower number matters, but so does the fact that most of Dia's concepts come from browsers people already understand." />
 
-<Figure src="/blog/dia-the-budget-transfer/13.webp" width="1600" height="326" alt="Fig 12. What carries over from the two teardowns. The Fit Audit and the Moving List come from Arc; Dia adds the third, the Cognitive Budget Audit splitting into a reduction half and a Freed-Budget half. Saved budget is only worth saving if it has somewhere to go." caption="Fig 12. What carries over from the two teardowns. The Fit Audit and the Moving List come from Arc; Dia adds the third, the Cognitive Budget Audit splitting into a reduction half and a Freed-Budget half. Saved budget is only worth saving if it has somewhere to go." />
+There are at least three changes contained in this decision.
+
+The first is quantity. With fewer concepts to hold in mind, it becomes easier to start using the product.
+
+The second is the use of existing habits. Dia's Profile maps closely to Chrome's account model, so most people already have a rough understanding of what it means. Arc used the same word for a container system that had to be learned separately.
+
+The same label can carry a completely different learning cost depending on the behaviour behind it.
+
+The third change is easier to miss. Dia delays much of the learning until the user actually needs it.
+
+Arc's sidebar presented Space, Folder and the other concepts from the beginning. Dia's Group usually appears after someone drags two tabs together, and the AI can name it automatically.
+
+The user does not have to study a definition of Group and then decide when it might be useful. They perform a natural action first and understand the feature in context.
+
+**Anything that can be learned at the point of use should not have to be memorised on the first day.**
+
+I call this the Cognitive Budget Audit.
+
+The method is straightforward. List every concept a new user must understand before they experience the product's value. Then classify each one as familiar or invented, and as necessary upfront or safe to introduce later.
+
+When people describe a product as too complicated, the instinct is often to delete features. That can be expensive, because valuable capability may disappear along with the complexity.
+
+A better first move is to replace invented concepts with familiar ones, then move upfront learning to the moment of need. In many cases, the product does not need less capability. The cost of understanding that capability simply needs to come down.
+
+<Figure src="/blog/dia-the-budget-transfer/08.webp" width="1600" height="797" alt="Arc spent a large share of the user's attention explaining its own concepts. Dia uses more familiar structures and leaves room for the AI features that follow." caption="Arc spent a large share of the user's attention explaining its own concepts. Dia uses more familiar structures and leaves room for the AI features that follow." />
+
+## Dia spent the attention it saved on AI
+
+The clever part of Dia is not simply that the interface became easier to understand. The team also had a clear destination for the attention it had saved.
+
+Many products add AI by placing a chat window on the right-hand side. The user has to find the entry point, switch into an AI mode and decide what to type.
+
+Dia took a different approach. It placed AI in four situations, each with a different level of friction and a different kind of value.
+
+### AI in the address bar
+
+Dia's primary AI entry point is the address bar people already use every day.
+
+You can type a URL or type a question. The design builds on one of the most established habits in the browser. There is no new button to find and no separate AI page to enter. You begin by typing, just as you always have.
+
+My estimate is that 60 to 70 per cent of Dia's AI usage happens here. This cannot be confirmed through public data, but the structure of the product makes the address bar clearly dominant.
+
+### A side conversation while you read
+
+The second entry point is the side chat.
+
+While reading a page, you can ask Dia to summarise it, explain a passage or answer further questions about the material in front of you. It requires one more deliberate action than the address bar, but it is better suited to sustained reading and conversation.
+
+My estimate is that this accounts for around 15 to 25 per cent of AI usage.
+
+### A report across several tabs
+
+The third entry point is the most distinctive.
+
+You can select several tabs and ask Dia to compare them, identify patterns and produce a structured report.
+
+You might open several competitor websites and ask it to compare their pricing models, or collect a group of articles and ask where the authors disagree.
+
+This requires the user to select multiple pages deliberately, so the interaction carries more friction. I would expect it to account for perhaps 5 to 10 per cent of use, while delivering more value each time it is used.
+
+### Suggestions initiated by the browser
+
+The final category is a suggestion initiated by the system.
+
+Dia might tell you that 28 tabs have not been opened for some time and ask whether you would like to clear them.
+
+This has the highest trust barrier. When a browser suddenly recommends closing my tabs, my first instinct is usually to ignore it, and I suspect many users respond in the same way. Usage may therefore sit somewhere between 0 and 5 per cent.
+
+<Figure src="/blog/dia-the-budget-transfer/09.webp" width="1600" height="634" alt="Dia's four AI entry points correspond to different levels of friction and value. The most familiar surface, the address bar, carries the majority of the work. The others support more specific tasks." caption="Dia's four AI entry points correspond to different levels of friction and value. The most familiar surface, the address bar, carries the majority of the work. The others support more specific tasks." />
+
+<Figure src="/blog/dia-the-budget-transfer/10.webp" width="1600" height="364" alt="On the left is the address bar, in the centre the side chat reading the current page, and on the right a report generated across several tabs. They do not carry equal weight in the product." caption="On the left is the address bar, in the centre the side chat reading the current page, and on the right a report generated across several tabs. They do not carry equal weight in the product." />
+
+## How many AI entry points does a product need?
+
+The important design decision is that Dia does not treat all four entry points equally.
+
+It makes the address bar the primary surface, then uses the others for more specific jobs. This is likely to become a lasting pattern in AI products. Because AI can perform so many tasks, teams are tempted to create a separate entry point for every capability, eventually producing several usable surfaces without building a strong habit around any of them.
+
+Cursor, Linear and Dia follow a similar pattern. They identify the most frequent and natural entry point, concentrate investment there, then let supporting surfaces handle the more specialised cases.
+
+**An AI product usually needs one strong primary surface, with the other entry points organised around it. Four surfaces competing for equal attention rarely create a clear habit.**
+
+This leads to another useful question.
+
+Once a team has lowered the cost of learning its product, where does the saved attention go?
+
+Some products become simpler and cleaner without helping users reach the core value any faster. Complexity decreases, but the product also loses part of what made it distinctive.
+
+Dia avoided that outcome. It reduced the effort required to understand Arc's original concepts, then used the space it created to introduce AI.
+
+I call this the Freed Budget Audit. In simpler terms, it asks whether the attention saved through simplification has been redirected towards the capability that matters most.
+
+Josh Miller has published two relevant figures. Dia's chat-with-tabs feature reached 40 per cent of daily active users, while personalisation reached 37 per cent.
+
+These are among the few public usage figures available for Dia. They suggest that AI became a meaningful part of the product's value instead of remaining a feature that only looked impressive in a demonstration.
+
+**When a product removes complexity, it needs to know what the newly available space is meant to support. Otherwise simplification becomes little more than deletion.**
+
+## What survives a rebuild is usually the real product
+
+Ask a product team which features matter and they will often say all of them. Ask the same team to rebuild from scratch and the answer becomes much more revealing.
+
+It is similar to moving house. Space, time and money are limited, so you carry what you genuinely need and leave the rest behind.
+
+When moving from Arc to Dia, the team kept the Command Bar, Split View, the basic sidebar structure and the tab lifecycle that automatically archived inactive tabs.
+
+It removed Spaces, Folders, Easel and Boost, along with some of the AI features added later to Arc, including Tidy Tabs and Call Arc.
+
+<Figure src="/blog/dia-the-budget-transfer/11.webp" width="1600" height="520" alt="The list of what moved from Arc into Dia. The features that survived are the ones the team believed had the most durable product value." caption="The list of what moved from Arc into Dia. The features that survived are the ones the team believed had the most durable product value." />
+
+The most important item on that list is the Command Bar.
+
+In Arc, it had already become more than a place to type URLs. It served as a single surface for receiving user intent. Opening a page, searching, running a command and calling AI could all begin there.
+
+Dia kept this interaction and pushed it further, turning it into the primary AI entry point.
+
+<Figure src="/blog/arc-the-moving-list/08.webp" width="1600" height="1220" alt="Arc's Command Bar. The central interaction that survived into Dia and became the foundation of its main AI experience." caption="Arc's Command Bar. The central interaction that survived into Dia and became the foundation of its main AI experience." />
+
+This suggests that the Command Bar was one of Arc's most valuable product assets. It has survived two generations of the browser and remains at the centre of the experience.
+
+I call this analysis the Moving List.
+
+When you want to understand which features genuinely matter, ask the team a more demanding question:
+
+If you had to rebuild tomorrow and could keep only half of the product, which half would survive?
+
+Asking what is working badly often invites explanation and defence. Asking people to choose half forces an actual ranking.
+
+Dia is the Moving List that The Browser Company wrote for itself, with the complete user data available.
+
+The list changed again later.
+
+Around six months after Dia launched, the team began bringing back some of Arc's popular features, starting with a sidebar mode. This suggests that some elements had been removed too quickly.
+
+A Moving List therefore becomes more useful when read twice.
+
+What survives the initial rebuild reflects what the team believes is core under pressure. What returns later shows what users missed enough to demand back.
+
+**What a team keeps tells you what it believes matters. What users demand back tells you where the value was felt.**
+
+The difference between those two lists is often where the first judgement was too aggressive.
+
+## A $610M acquisition still does not prove product-market fit
+
+At this point, Dia appears to be a complete success story.
+
+It clarified the positioning, reduced the learning cost, directed the saved attention towards AI, retained Arc's most important interaction and ended with a $610 million acquisition by Atlassian.
+
+There is another side to the story.
+
+Many of Arc's differentiating features had usage rates between 5 and 12 per cent. If the goal is to build a free browser for the mainstream market, those figures are dangerous. The team invested heavily in capabilities that most users never adopted.
+
+Under a different business model, however, the same numbers could lead to a different conclusion.
+
+Suppose Arc had accepted that it was a paid professional tool. A group representing 5 to 12 per cent of its users might then have been a valuable core audience. The company could have charged them and continued building deeper, more specialised features around their needs.
+
+Data does not tell a team what to do on its own.
+
+**The same usage rate can signal failure in a mass-market product and identify a valuable group of paying users in a professional tool.**
+
+<Figure src="/blog/arc-the-moving-list/10.webp" width="1600" height="541" alt="The same 5 to 12 per cent can mean two different things. In a free mass-market browser it may be a failure signal. In a paid professional tool it may identify the users worth serving most deeply." caption="The same 5 to 12 per cent can mean two different things. In a free mass-market browser it may be a failure signal. In a paid professional tool it may identify the users worth serving most deeply." />
+
+The interpretation depends on the business model and the scale the company is trying to reach.
+
+Dia chose the more familiar, more accessible and easier-to-distribute direction. That decision led to the acquisition, but we still do not know whether Dia could have grown into a mainstream browser independently.
+
+Dia launched in June 2025 and was acquired in September. Three months is far too short to validate long-term retention, willingness to pay or the potential market size of a new browser.
+
+After the acquisition, Dia can grow through Atlassian's customers and distribution channels. That is a very different environment from competing independently with Chrome, Safari and Edge.
+
+Its reachable market is also limited by platform availability. For now, the product is focused largely on Apple Silicon Mac users. Until Windows, Intel Mac and Linux versions arrive, its coverage remains restricted.
+
+There is also an interesting repetition in the company's history.
+
+In 2014, Josh Miller sold Branch to Facebook for $15 million. Eleven years later, he sold Arc's successor to Atlassian for $610 million.
+
+Both products were well designed and loved by a relatively small group. Both were acquired by a larger platform before reaching mass scale on their own.
+
+<Figure src="/blog/dia-the-budget-transfer/12.webp" width="1600" height="240" alt="Two acquisitions, eleven years apart. The financial scale changed dramatically, while the overall pattern remained familiar." caption="Two acquisitions, eleven years apart. The financial scale changed dramatically, while the overall pattern remained familiar." />
+
+Dia may show that The Browser Company finally found genuine product-market fit. It may also show that this team is exceptionally good at creating polished, distinctive products that large platforms want to acquire.
+
+Both interpretations remain possible.
+
+The open-market data required to separate them does not exist, because the acquisition happened before Dia had time to produce it.
+
+## Five questions to take from Arc and Dia
+
+Remove the product names and this case leaves five questions worth asking repeatedly.
+
+### 1. Who is your product inviting at first glance?
+
+Do the visual style, examples and language allow your real customers to recognise themselves quickly? Or are you attracting people who appreciate the design but never become committed users?
+
+### 2. How much must a user learn before reaching value?
+
+List every concept. Which ones are already familiar, and which require explanation? Which must be understood immediately, and which can appear only when they become relevant?
+
+### 3. Once the product becomes simpler, where does the saved attention go?
+
+Simplification is a process, not the final goal. The attention you free should be redirected towards the capability that genuinely differentiates the product. Otherwise the experience may become cleaner and more ordinary at the same time.
+
+### 4. If you rebuilt from scratch, which half of the features would survive?
+
+This question quickly separates core value from historical baggage. After making the cut, watch which removed features users ask to have restored.
+
+### 5. Does the meaning of your data depend on the business model?
+
+A feature used by 10 per cent of users may indicate that the direction is wrong. It may also belong to a small group willing to pay. Before acting on the number, check whether the assumed business model is the right one.
+
+## What Dia really fixed was the allocation of attention
+
+Arc gave us two useful tools for examining a product: the Fit Audit and the Moving List.
+
+Dia supports both and adds a fuller way of thinking about cognitive cost.
+
+First reduce what the user must understand. Then examine where the attention you saved has been invested.
+
+**Complexity has no value by itself. The important question is whether each piece of complexity is asking for attention in a place that deserves it.**
+
+Arc spent a large amount of user attention explaining its own invented concepts. Dia used more familiar structures such as Profile, Tab and Group, then redirected the attention it saved towards AI.
+
+It did not abandon Arc's design ambition. It became more selective about which ideas deserved the user's time and which burdens the product should carry on the user's behalf.
+
+<Figure src="/blog/dia-the-budget-transfer/13.webp" width="1600" height="326" alt="From Arc to Dia, three questions follow one another: who the product is inviting, what the user must learn and where the saved attention is invested." caption="From Arc to Dia, three questions follow one another: who the product is inviting, what the user must learn and where the saved attention is invested." />
+
+That is what makes Dia worth studying.
+
+When a team gets the chance to build a product again, the choices it makes are often more revealing than any retrospective article. What was removed, what survived and what later had to return all answer the same question from different directions:
+
+Which part of the product was actually valuable?
+
+If you are building something now, it may be worth writing your own Moving List.
+
+If you had to start again tomorrow, what would you carry into the new product? What remains only because it has been there for a long time and no one wants to be responsible for removing it?
 
 ---
 
 If any of those questions landed without a clean answer, that gap is worth a closer look.
 
-I write diagnoses like this one for other products. Where your design is quietly turning away the customer you want, what that costs you, and what to change first. If you would like one for yours, email me at hi@bearliu.com.
+I write diagnoses like this one for other products: where your design is quietly serving the wrong outcome, what that is costing you, and what to change first. If you would like one for yours, email me at hi@bearliu.com.
